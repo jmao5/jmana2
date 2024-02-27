@@ -11,7 +11,7 @@ export default function Navigation() {
     { label: "툰찾", key: 2, url: "/mark" },
   ];
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState("");
 
   return (
     <header className="px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 border-gray-300">
@@ -35,8 +35,8 @@ export default function Navigation() {
               type="text"
               placeholder="제목을 검색해보세요"
               className="placeholder-black placeholder-opacity-75 py-2 pl-2"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
