@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
   const { isError, response: tokenResponse } = await safePostAuthCodeFetch(
     code
   );
-  console.log("tokenResponse : ", tokenResponse);
 
   if (isError || !tokenResponse) {
     return NextResponse.json(tokenResponse ?? {}, {

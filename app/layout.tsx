@@ -20,11 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body
-        className={cn(
-          `${PoorStory.className} min-h-screen bg-background font-sans antialiased`
-        )}
-      >
+      <body className={cn(`${PoorStory.className} flex flex-col items-center`)}>
         <UserIdProvider>
           <ThemeProvider
             attribute="class"
@@ -34,8 +30,10 @@ export default function RootLayout({
           >
             <ToastProvider>
               <Navigation />
-              {children}
-              <Toast />
+              <main className="bg-background flex min-h-screen w-full max-w-screen-sm flex-col items-center px-5 py-24 shadow">
+                {children}
+                <Toast />
+              </main>
             </ToastProvider>
             {/* <Toaster /> */}
           </ThemeProvider>
