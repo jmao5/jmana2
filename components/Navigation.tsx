@@ -1,10 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import { Search } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
+import { Button } from "./ui/button";
+import { useUserId } from "@/contexts/UserIdProvider";
 
 export default function Navigation() {
+  const { userId } = useUserId();
+  console.log("userId2 : ", userId);
+
+  const logOut = () => {};
+
   const buttonLabels = [
     { label: "웹툰", key: 0, url: "/webtoon" },
     { label: "만화", key: 1, url: "/manhua" },
@@ -14,7 +21,7 @@ export default function Navigation() {
   const [search, setSearch] = useState("");
 
   return (
-    <header className="px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 border-gray-300">
+    <header className="px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 border-b-2">
       <nav className="flex justify-between items-center h-12 md:h-20">
         <div className="flex items-center">
           <Link href={"/"}>로고</Link>
@@ -39,6 +46,18 @@ export default function Navigation() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+          {/* {userId === 0 ? (
+            <Link href={"/login"}>
+              <Button variant="secondary">로그인</Button>
+            </Link>
+          ) : (
+            <Button variant="secondary" onClick={() => logOut()}>
+              로그아웃
+            </Button>
+          )} */}
+          <Link href={"/login"}>
+            <Button variant="secondary">로그인</Button>
+          </Link>
         </div>
       </nav>
       {/* Mobile navigation */}
