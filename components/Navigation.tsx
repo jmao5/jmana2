@@ -10,7 +10,7 @@ import LogoImage from "/public/images/logo.png";
 
 export default function Navigation() {
   const { userId } = useUserId();
-  console.log("userId2 : ", userId);
+  console.log("네비게이션 아이디 : ", userId);
 
   const logOut = () => {};
 
@@ -27,7 +27,7 @@ export default function Navigation() {
       <nav className="flex justify-between items-center h-12 md:h-20">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image src={LogoImage} alt="에러 이미지" width={80} />
+            <Image src={LogoImage} alt="로고" width={80} />
           </Link>
           <div className="pl-10 mt-2 md:mt-0 space-x-2 hidden md:flex">
             {buttonLabels.map((button, index) => (

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-import ErrorImage from "/public/images/error (3).jpg";
+import ErrorImage from "/public/images/error3.jpg";
 import Button from "@/components/common/Button";
 
 export default function ErrorPage({

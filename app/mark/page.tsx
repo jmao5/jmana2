@@ -10,6 +10,7 @@ export default async function Mark() {
 
   const { isError, response } = await safeGetUserFetch(token ?? "");
   console.log("response : ", response);
+  console.log("isError : ", isError);
   if (isError || !response) return <ErrorPage />;
 
   return <h1>즐찾</h1>;

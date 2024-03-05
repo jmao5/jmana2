@@ -20,7 +20,7 @@ export const safeGetProfileFetch = (
 };
 
 export const safeGetUserFetch = (token: string) => {
-  return safeFetch<UserResponse>("backend", `/api/me`, {
+  return safeFetch<UserResponse>("backend", `/auth/user/me`, {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
     next: { tags: [`user`] },

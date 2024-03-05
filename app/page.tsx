@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { getServerToken, getServerUserId } from "@/utils/auth";
 
 export default function Home() {
@@ -7,9 +6,5 @@ export default function Home() {
   console.log("token : ", token);
   console.log("userId : ", userId);
 
-  return (
-    <div>
-      <Button>버튼 테스트</Button>
-    </div>
-  );
+  return <div>Home</div>;
 }
