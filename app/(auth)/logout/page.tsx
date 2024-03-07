@@ -4,12 +4,11 @@ import LoadingSpiner from "@/components/LoadingSpiner";
 import { useToast } from "@/contexts/ToastProvider";
 import useAuthStore from "@/stores/isAuth";
 import useUserIdStore from "@/stores/isUserId";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { getCookie } from "cookies-next";
+import { useEffect } from "react";
 
 const Logout = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const { showToast } = useToast();
   const { setIsAuth } = useAuthStore();
   const { userId, setUserId } = useUserIdStore();
@@ -41,7 +40,7 @@ const Logout = () => {
         setUserId(0);
 
         showToast("로그아웃 성공!", "success");
-        router.replace("/");
+        window.location.replace("/");
       } catch (err) {
         console.error(err);
 
