@@ -1,11 +1,11 @@
-import { Gugi } from "next/font/google";
+// import { Gugi } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "/public/images/logo.png";
-const gugi = Gugi({
-  weight: ["400"],
-  subsets: ["latin"],
-});
+// const gugi = Gugi({
+//   weight: ["400"],
+//   subsets: ["latin"],
+// });
 
 const LoginPage = () => {
   return (

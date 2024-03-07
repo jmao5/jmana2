@@ -3,25 +3,22 @@ import { NextRequest, NextResponse } from "next/server";
 import { safePostAuthLogout } from "@/services/auth";
 
 export async function POST(request: NextRequest) {
-  const { userId, token } = await request.json();
-  console.log("userId, token : ", userId, token);
+  const { userId, token, refreshToken } = await request.json();
 
-  const { isError, response: tokenResponse } = await safePostAuthLogout(
-    userId,
-    token
-  );
+  const { isError } = await safePostAuthLogout(userId, token, refreshToken);
 
-  if (isError || !tokenResponse) {
-    return NextResponse.json(tokenResponse ?? {}, {
+  if (isError) {
+    return NextResponse.json({
       status: 400,
     });
   }
 
-  const response = new NextResponse("Error", {
-    status: 400,
+  const response = new NextResponse("Ok", {
+    status: 200,
   });
 
   response.cookies.delete("token");
+  response.cookies.delete("refreshToken");
   response.cookies.delete("userId");
 
   return response;

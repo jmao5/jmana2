@@ -3,9 +3,10 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
+import LoadingSpiner from "@/components/LoadingSpiner";
 import { useToast } from "@/contexts/ToastProvider";
-import { useUserId } from "@/stores/isUserId";
 import useAuthStore from "@/stores/isAuth";
+import useUserIdStore from "@/stores/isUserId";
 
 const KakaoCallbackPage = () => {
   const searchParams = useSearchParams();
@@ -13,7 +14,7 @@ const KakaoCallbackPage = () => {
 
   const router = useRouter();
 
-  const { setUserId } = useUserId();
+  const { setUserId } = useUserIdStore();
   const { setIsAuth } = useAuthStore();
 
   const { showToast } = useToast();
@@ -63,7 +64,7 @@ const KakaoCallbackPage = () => {
     postCode();
   }, []);
 
-  return <div className="text-bold text-2xl">Loading...</div>;
+  return <LoadingSpiner />;
 };
 
 export default KakaoCallbackPage;

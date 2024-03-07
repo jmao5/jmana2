@@ -3,9 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import LogoImage from "/public/images/logo.png";
 import useAuthStore from "@/stores/isAuth";
+import Link from "next/link";
 
 export default function Navigation() {
   const { isAuth } = useAuthStore();

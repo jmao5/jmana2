@@ -20,12 +20,17 @@ export const safePostAuthCodeFetch = (code: string) => {
   });
 };
 
-export const safePostAuthLogout = (userId: number, token: string) => {
+export const safePostAuthLogout = (
+  userId: number,
+  token: string,
+  refreshToken: string
+) => {
   return safeFetch<void>("backend", "/auth/logout", {
     method: "POST",
     headers: {
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ userId }),
+    body: JSON.stringify({ userId, refreshToken }),
   });
 };
