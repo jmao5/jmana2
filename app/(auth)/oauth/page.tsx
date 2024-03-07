@@ -4,7 +4,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { useToast } from "@/contexts/ToastProvider";
-import { useUserId } from "@/contexts/UserIdProvider";
+import { useUserId } from "@/stores/isUserId";
+import useAuthStore from "@/stores/isAuth";
 
 const KakaoCallbackPage = () => {
   const searchParams = useSearchParams();
@@ -13,6 +14,7 @@ const KakaoCallbackPage = () => {
   const router = useRouter();
 
   const { setUserId } = useUserId();
+  const { setIsAuth } = useAuthStore();
 
   const { showToast } = useToast();
 
@@ -35,8 +37,10 @@ const KakaoCallbackPage = () => {
           throw new Error(response.statusText);
         }
 
-        const userId = (await response.json()).userId;
+        const { userId } = await response.json();
+
         setUserId(userId);
+        setIsAuth(true);
 
         showToast("로그인 성공!", "success");
         router.push("/");

@@ -1,18 +1,15 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
-import { Button } from "./ui/button";
-import { useUserId } from "@/contexts/UserIdProvider";
 import Image from "next/image";
+import Link from "next/link";
 import LogoImage from "/public/images/logo.png";
+import useAuthStore from "@/stores/isAuth";
 
 export default function Navigation() {
-  const { userId } = useUserId();
-  console.log("네비게이션 아이디 : ", userId);
-
-  const logOut = () => {};
+  const { isAuth } = useAuthStore();
+  console.log("isAuth : ", isAuth);
 
   const buttonLabels = [
     { label: "웹툰", key: 0, url: "/webtoon" },
@@ -20,16 +17,15 @@ export default function Navigation() {
     { label: "툰찾", key: 2, url: "/mark" },
   ];
 
-  const [search, setSearch] = useState("");
-
   return (
-    <header className="bg-zinc-50 flex w-full max-w-screen-sm flex-col px-4">
-      <nav className="flex justify-between items-center h-12 md:h-20">
+    // <header className="bg-zinc-50 flex w-full max-w-screen-sm flex-col px-4">
+    <header className="border-b border-background-darken flex h-16 w-full items-center justify-between space-x-4 bg-background p-3 fixed max-w-screen-sm z-40 top-0">
+      <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image src={LogoImage} alt="로고" width={80} />
+            <Image className="w-12 sm:w-20" src={LogoImage} alt="로고" />
           </Link>
-          <div className="pl-10 mt-2 md:mt-0 space-x-2 hidden md:flex">
+          <div className="pl-4 space-x-1">
             {buttonLabels.map((button, index) => (
               <Link key={index} href={button.url ?? "#"}>
                 <button className="text-black hover:bg-slate-100 border-none py-1 px-2 rounded-sm">
@@ -40,32 +36,27 @@ export default function Navigation() {
           </div>
         </div>
         <div className="flex items-center">
-          <div className="flex items-center mt-2 md:mt-0 pr-3">
+          <div className="flex items-center mt-2 md:mt-0 pr-3 hidden sm:flex">
             <Search />
             <input
               type="text"
               placeholder="제목을 검색해보세요"
               className="placeholder-black placeholder-opacity-75 py-2 pl-2"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          {/* {userId === 0 ? (
+          {isAuth ? (
+            <Link href={"/logout"}>
+              <Button variant="secondary">로그아웃</Button>
+            </Link>
+          ) : (
             <Link href={"/login"}>
               <Button variant="secondary">로그인</Button>
             </Link>
-          ) : (
-            <Button variant="secondary" onClick={() => logOut()}>
-              로그아웃
-            </Button>
-          )} */}
-          <Link href={"/login"}>
-            <Button variant="secondary">로그인</Button>
-          </Link>
+          )}
         </div>
       </nav>
       {/* Mobile navigation */}
-      <nav className="md:hidden">
+      {/* <nav className="sm:hidden">
         <div className="flex mt-2">
           {buttonLabels.map((button, index) => (
             <Link key={index} href={button.url ?? "#"}>
@@ -75,7 +66,7 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
-      </nav>
+      </nav> */}
     </header>
   );
 }

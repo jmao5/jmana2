@@ -16,13 +16,16 @@ export async function POST(request: NextRequest) {
   }
 
   const response = new NextResponse(
-    JSON.stringify({ userId: tokenResponse.data.userId }),
+    JSON.stringify({
+      userId: tokenResponse.data.userId,
+    }),
     {
       status: tokenResponse.status,
     }
   );
 
   response.cookies.set("token", tokenResponse.data.accessToken);
+  response.cookies.set("refreshToken", tokenResponse.data.refreshToken);
   response.cookies.set("userId", tokenResponse.data.userId.toString());
 
   return response;
