@@ -1,6 +1,6 @@
 import { safeGetUserFetch } from "@/services/users";
 import { getServerToken } from "@/utils/auth";
-import ErrorPage from "../error";
+import ErrorPage from "../../error";
 
 export default async function Mark() {
   const token = getServerToken();

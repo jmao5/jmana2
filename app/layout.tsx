@@ -1,4 +1,3 @@
-import Navigation from "@/components/domain/home/Navigation";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import Toast from "@/components/ui/toast";
 import ToastProvider from "@/contexts/ToastProvider";
@@ -27,7 +26,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ToastProvider>
-            <Navigation />
             <main className="bg-background flex min-h-screen w-full max-w-screen-sm flex-col items-center px-5 py-24 shadow">
               {children}
               <Toast />
