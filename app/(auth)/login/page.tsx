@@ -1,7 +1,7 @@
 "use client";
 
+import LinkButton from "@/components/common/LinkButton";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import LogoImage from "/public/images/logo.png";
 
@@ -27,9 +27,10 @@ const LoginPage = () => {
           />
         </button>
 
-        <Link href="/" className="mt-28 text-lg text-dark-gray underline">
+        {/* <Link href="/" className="mt-28 text-lg text-dark-gray underline">
           시작 페이지로 돌아가기
-        </Link>
+        </Link> */}
+        <LinkButton href={"/"}>시작 페이지로 돌아가기</LinkButton>
       </div>
     </div>
   );
