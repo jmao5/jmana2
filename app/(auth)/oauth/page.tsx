@@ -4,9 +4,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import LoadingSpiner from "@/components/LoadingSpiner";
-import { useToast } from "@/contexts/ToastProvider";
 import useAuthStore from "@/stores/isAuth";
 import useUserIdStore from "@/stores/isUserId";
+import { Toast } from "@/components/common/Toaster/customToast";
 
 const KakaoCallbackPage = () => {
   const searchParams = useSearchParams();
@@ -17,15 +17,13 @@ const KakaoCallbackPage = () => {
   const { setUserId } = useUserIdStore();
   const { setIsAuth } = useAuthStore();
 
-  const { showToast } = useToast();
-
   useEffect(() => {
     if (!code) return;
 
     const postCode = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_FE_URL}/api/token`,
+          `${process.env.NEXT_PUBLIC_FE_URL}/api/login`,
           {
             method: "POST",
             body: JSON.stringify({
@@ -43,15 +41,12 @@ const KakaoCallbackPage = () => {
         setUserId(userId);
         setIsAuth(true);
 
-        showToast("로그인 성공!", "success");
+        Toast.success("로그인 성공!");
         router.push("/");
       } catch (err) {
         console.error(err);
 
-        showToast(
-          "로그인 처리 중 에러가 발생했습니다. 다시 시도해주세요.",
-          "error"
-        );
+        Toast.success("로그인 처리 중 에러가 발생했습니다. 다시 시도해주세요.");
         router.push("/login");
       }
     };

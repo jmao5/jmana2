@@ -10,8 +10,8 @@ export default function NotFound() {
         <h2 className="mb-20 mt-6 text-xl font-semibold">
           요청하신 데이터를 찾을 수 없어요..
         </h2>
-        <Image src={NotFoundImage} alt="404 이미지" height={250} />
-        <LinkButton href={"/"}>시작 페이지로 돌아가기</LinkButton>
+        <Image src={NotFoundImage} alt="404 이미지" width={400} />
+        <LinkButton href={"/"}>홈페이지로 돌아가기</LinkButton>
       </div>
     </>
   );

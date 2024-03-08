@@ -31,19 +31,19 @@ const LinkButton = ({
     primary: "bg-primary text-white hover:bg-primary-lighten",
     active: "bg-active text-white hover:bg-active-lighten",
     cancel: "bg-cancel text-white hover:bg-cancel-lighten",
-    inactive: "bg-inactive text-inactive-darken"
+    inactive: "bg-inactive text-inactive-darken",
   };
 
   const sizes = {
     sm: "w-6/12",
     md: "w-10/12",
-    lg: "w-11/12"
+    lg: "w-full",
   };
 
   const textSizes = {
     sm: "text-xs",
     md: "text-sm",
-    lg: "text-xl"
+    lg: "text-xl",
   };
 
   const defaultStyle =
@@ -52,7 +52,8 @@ const LinkButton = ({
   return (
     <Link
       className={`${themes[theme]} ${sizes[size]} ${textSizes[textSize]} ${defaultStyle} ${className}`}
-      {...props}>
+      {...props}
+    >
       <div className={showChevron ? "w-6" : ""} />
       {children}
       <div>{showChevron && <BiChevronRight size="24" />}</div>

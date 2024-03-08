@@ -1,7 +1,7 @@
 "use client";
 
 import LoadingSpiner from "@/components/LoadingSpiner";
-import { useToast } from "@/contexts/ToastProvider";
+import { Toast } from "@/components/common/Toaster/customToast";
 import useAuthStore from "@/stores/isAuth";
 import useUserIdStore from "@/stores/isUserId";
 import { getCookie } from "cookies-next";
@@ -9,7 +9,6 @@ import { useEffect } from "react";
 
 const Logout = () => {
   // const router = useRouter();
-  const { showToast } = useToast();
   const { setIsAuth } = useAuthStore();
   const { userId, setUserId } = useUserIdStore();
   const token = getCookie("token");
@@ -39,14 +38,13 @@ const Logout = () => {
         setIsAuth(false);
         setUserId(0);
 
-        showToast("로그아웃 성공!", "success");
+        Toast.success("로그아웃 성공!");
         window.location.replace("/");
       } catch (err) {
         console.error(err);
 
-        showToast(
-          "로그아웃 처리 중 에러가 발생했습니다. 다시 시도해주세요.",
-          "error"
+        Toast.success(
+          "로그아웃 처리 중 에러가 발생했습니다. 다시 시도해주세요."
         );
       }
     };
