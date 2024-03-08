@@ -9,7 +9,6 @@ import Link from "next/link";
 
 export default function Navigation() {
   const { isAuth } = useAuthStore();
-  console.log("isAuth : ", isAuth);
 
   const buttonLabels = [
     { label: "웹툰", key: 0, url: "/webtoon" },
@@ -46,11 +45,15 @@ export default function Navigation() {
           </div>
           {isAuth ? (
             <Link href={"/logout"}>
-              <Button variant="secondary">로그아웃</Button>
+              <Button variant="ghost" className="border border-stone-500">
+                로그아웃
+              </Button>
             </Link>
           ) : (
             <Link href={"/login"}>
-              <Button variant="secondary">로그인</Button>
+              <Button variant="ghost" className="border border-stone-500">
+                로그인
+              </Button>
             </Link>
           )}
         </div>

@@ -1,20 +1,23 @@
-// import { Gugi } from "next/font/google";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import LogoImage from "/public/images/logo.png";
-// const gugi = Gugi({
-//   weight: ["400"],
-//   subsets: ["latin"],
-// });
 
 const LoginPage = () => {
+  const router = useRouter();
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center gap-20">
         {/* <h1 className={`${gugi.className} text-[3.4rem] font-black`}>manaJ</h1> */}
         <Image src={LogoImage} alt="로고" width={300} />
-        <Link
-          href={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.KAKAO_CLIENT_ID}&redirect_uri=${process.env.AUTH_URL}&response_type=code`}
+        <button
+          // href={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.KAKAO_CLIENT_ID}&redirect_uri=${process.env.AUTH_URL}&response_type=code`}
+          onClick={() => {
+            router.push(`${process.env.NEXT_PUBLIC_KAKAO_OAUTH_URL}`);
+          }}
         >
           <Image
             src="/images/kakaoLogin 1.png"
@@ -22,7 +25,7 @@ const LoginPage = () => {
             width={300}
             height={60}
           />
-        </Link>
+        </button>
 
         <Link href="/" className="mt-28 text-lg text-dark-gray underline">
           시작 페이지로 돌아가기
