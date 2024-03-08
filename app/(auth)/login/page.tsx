@@ -10,7 +10,7 @@ import LogoImage from "/public/images/logo.png";
 const LoginPage = () => {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center gap-40">
+      <div className="flex flex-col items-center justify-center gap-20">
         {/* <h1 className={`${gugi.className} text-[3.4rem] font-black`}>manaJ</h1> */}
         <Image src={LogoImage} alt="로고" width={300} />
         <Link
@@ -22,6 +22,10 @@ const LoginPage = () => {
             width={300}
             height={60}
           />
+        </Link>
+
+        <Link href="/" className="mt-28 text-lg text-dark-gray underline">
+          시작 페이지로 돌아가기
         </Link>
       </div>
     </div>
