@@ -45,11 +45,6 @@ const KakaoCallbackPage = () => {
 
         showToast("로그인 성공!", "success");
         router.push("/");
-        // if (response.status === 200) {
-        //   router.push("/");
-        // } else if (response.status === 201) {
-        //   router.push("/survey/mandatory");
-        // }
       } catch (err) {
         console.error(err);
 
@@ -62,6 +57,7 @@ const KakaoCallbackPage = () => {
     };
 
     postCode();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <LoadingSpiner />;

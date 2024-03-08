@@ -7,9 +7,6 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <>
       <Navigation />
       {children}
-      {/* <div className="fixed bottom-0 h-0 w-full max-w-screen-sm">
-        <MissionCreateButton />
-      </div> */}
       {/* <Footer /> */}
     </>
   );
