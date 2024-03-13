@@ -1,21 +1,16 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-
-import { useGetUserInformationQuery } from "@/hooks/apis/useGetUserInformationQuery";
+import User from "@/components/domain/user/User";
 import { getCookie } from "cookies-next";
+
+// const userInformation = async () => {
+//   const { data: userInformation } = await getUserServerInformation();
+//   return userInformation;
+// };
 export default function Mark() {
   const token = getCookie("token");
-
-  return (
-    <h1>
-      {token ? (
-        <>
-          내 닉네임 :{" "}
-          {useGetUserInformationQuery().userInformation.basicInfo.nickname}
-        </>
-      ) : (
-        ""
-      )}
-    </h1>
-  );
+  // const {
+  //   data: { basicInfo },
+  // } = await userInformation();
+  // console.log(basicInfo);
+  return <>{token ? <User /> : ""}</>;
 }
