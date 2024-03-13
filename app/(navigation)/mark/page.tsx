@@ -1,14 +1,21 @@
-import { safeGetUserFetch } from "@/services/users";
-import { getServerToken } from "@/utils/auth";
-import ErrorPage from "../../error";
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
 
-export default async function Mark() {
-  const token = getServerToken();
+import { useGetUserInformationQuery } from "@/hooks/apis/useGetUserInformationQuery";
+import { getCookie } from "cookies-next";
+export default function Mark() {
+  const token = getCookie("token");
 
-  const { isError, response } = await safeGetUserFetch(token ?? "");
-
-  console.log("response : ", response);
-  if (isError || !response) return <ErrorPage />;
-
-  return <h1>즐찾</h1>;
+  return (
+    <h1>
+      {token ? (
+        <>
+          내 닉네임 :{" "}
+          {useGetUserInformationQuery().userInformation.basicInfo.nickname}
+        </>
+      ) : (
+        ""
+      )}
+    </h1>
+  );
 }

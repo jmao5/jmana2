@@ -4,6 +4,7 @@ import { PoorStory } from "@/style/font";
 import type { Metadata } from "next";
 import "./globals.css";
 import Toaster from "@/components/common/Toaster/Toaster";
+import TanstackQueryProvider from "@/provider/TanstackQueryProvider";
 
 export const metadata: Metadata = {
   title: "manaJ",
@@ -27,10 +28,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="bg-background flex min-h-screen w-full max-w-screen-sm flex-col items-center px-5 py-24 shadow">
-            {children}
-          </main>
-          <Toaster />
+          <TanstackQueryProvider>
+            <main className="bg-background flex min-h-screen w-full max-w-screen-sm flex-col items-center px-5 py-24 shadow">
+              {children}
+            </main>
+            <Toaster />
+          </TanstackQueryProvider>
         </ThemeProvider>
       </body>
     </html>

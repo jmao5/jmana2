@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const cookies = request.cookies;
 
   if (request.nextUrl.pathname === "/mark") {
-    console.log("tokencookie : ", cookies.has("token"));
+    console.log("middleware token : ", cookies.has("token"));
 
     if (!cookies.has("token")) {
       return NextResponse.redirect(new URL("/login", request.url));

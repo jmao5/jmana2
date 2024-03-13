@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-import LoadingSpiner from "@/components/LoadingSpiner";
+import LoadingSpiner from "@/components/common/LoadingSpiner";
 import useAuthStore from "@/stores/isAuth";
 import useUserIdStore from "@/stores/isUserId";
 import { Toast } from "@/components/common/Toaster/customToast";
@@ -46,7 +46,7 @@ const KakaoCallbackPage = () => {
       } catch (err) {
         console.error(err);
 
-        Toast.success("로그인 처리 중 에러가 발생했습니다. 다시 시도해주세요.");
+        Toast.error("로그인 처리 중 에러가 발생했습니다. 다시 시도해주세요.");
         router.push("/login");
       }
     };

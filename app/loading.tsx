@@ -1,4 +1,4 @@
-import LoadingSpiner from "@/components/LoadingSpiner";
+import LoadingSpiner from "@/components/common/LoadingSpiner";
 
 export default function Loading() {
   return <LoadingSpiner />;

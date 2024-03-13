@@ -1,6 +1,6 @@
 "use client";
 
-import LoadingSpiner from "@/components/LoadingSpiner";
+import LoadingSpiner from "@/components/common/LoadingSpiner";
 import { Toast } from "@/components/common/Toaster/customToast";
 import useAuthStore from "@/stores/isAuth";
 import useUserIdStore from "@/stores/isUserId";
@@ -43,9 +43,7 @@ const Logout = () => {
       } catch (err) {
         console.error(err);
 
-        Toast.success(
-          "로그아웃 처리 중 에러가 발생했습니다. 다시 시도해주세요."
-        );
+        Toast.error("로그아웃 처리 중 에러가 발생했습니다. 다시 시도해주세요.");
       }
     };
 
