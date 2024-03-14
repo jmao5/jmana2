@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import LinkButton from "@/components/common/LinkButton";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
@@ -11,14 +11,13 @@ const LoginPage = () => {
     <div>
       <div className="flex flex-col items-center justify-center gap-20">
         {/* <h1 className={`${gugi.className} text-[3.4rem] font-black`}>manaJ</h1> */}
-        <Image src="/images/logo.png" alt="로고" width={300} height={300} />
+        <img src="/images/logo.png" alt="로고" width={300} height={300} />
         <button
-          // href={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.KAKAO_CLIENT_ID}&redirect_uri=${process.env.AUTH_URL}&response_type=code`}
           onClick={() => {
             router.push(`${process.env.NEXT_PUBLIC_KAKAO_OAUTH_URL}`);
           }}
         >
-          <Image
+          <img
             src="/images/kakaoLogin 1.png"
             alt="카카오 로그인"
             width={300}

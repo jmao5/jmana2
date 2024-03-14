@@ -1,10 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
-import Image from "next/image";
-import LogoImage from "/public/images/logo.png";
 import useAuthStore from "@/stores/isAuth";
+import { Search } from "lucide-react";
 import Link from "next/link";
 
 export default function Navigation() {
@@ -22,7 +21,7 @@ export default function Navigation() {
       <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image
+            <img
               className="w-12 sm:w-20"
               src="/images/logo.png"
               width={100}
