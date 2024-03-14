@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+      - run: flyctl deploy --remote-only -e NEXT_PUBLIC_API_BASE_URL=${{ secrets.BACKEND_URL }} -e NEXT_PUBLIC_FE_URL=${{ secrets.FRONT_URL }} -e NEXT_PUBLIC_KAKAO_OAUTH_URL=${{ secrets.OAUTH_URL }} 
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
