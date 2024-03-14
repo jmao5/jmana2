@@ -12,9 +12,6 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
-# Copy .env file
-COPY .env ./
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -38,6 +35,9 @@ RUN npm prune --omit=dev
 
 # Final stage for app image
 FROM base
+
+# Copy .env file
+COPY .env ./
 
 # Copy built application
 COPY --from=build /app /app
