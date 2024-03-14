@@ -12,6 +12,15 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+ARG BACKEND_URL
+ENV NEXT_PUBLIC_API_BASE_URL=$BACKEND_URL
+
+ARG FRONT_URL
+ENV NEXT_PUBLIC_FE_URL=$FRONT_URL
+
+ARG OAUTH_URL
+ENV NEXT_PUBLIC_KAKAO_OAUTH_URL=$OAUTH_URL
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
