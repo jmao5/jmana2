@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import NotFoundImage from "/public/images/error2.jpg";
+import NotFoundImage from "@/public/images/error2.jpg";
 import LinkButton from "@/components/common/LinkButton";
 
 export default function NotFound() {
