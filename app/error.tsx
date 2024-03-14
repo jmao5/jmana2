@@ -1,10 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-import ErrorImage from "/public/images/error3.jpg";
 import Button from "@/components/common/Button";
 
 export default function ErrorPage({
@@ -32,7 +31,7 @@ export default function ErrorPage({
       <h2 className="mb-20 mt-6 text-xl font-semibold">
         데이터 처리 중 오류가 발생했어요!
       </h2>
-      <Image src={ErrorImage} alt="에러 이미지" height={300} />
+      <img src="/images/error3.jpg" alt="에러 이미지" height={300} />
       <Button onClick={handleReset}>새로 고침</Button>
     </div>
   );
