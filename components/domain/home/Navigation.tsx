@@ -22,7 +22,13 @@ export default function Navigation() {
       <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image className="w-12 sm:w-20" src={LogoImage} alt="로고" />
+            <Image
+              className="w-12 sm:w-20"
+              src="/images/logo.png"
+              width={100}
+              height={100}
+              alt="로고"
+            />
           </Link>
           <div className="pl-4 space-x-1">
             {buttonLabels.map((button, index) => (
