@@ -25,7 +25,7 @@ export default function RootLayout({
         httpEquiv="Content-Security-Policy"
         content="upgrade-insecure-requests"
       />
-      <meta name="referrer" content="unsafe-url" />
+      <meta name="Referrer-Police" content="unsafe-url" />
 
       <body className={cn(`${PoorStory.className} flex flex-col items-center`)}>
         <ThemeProvider
