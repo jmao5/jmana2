@@ -20,6 +20,6 @@ jobs:
           NEXT_PUBLIC_FE_URL=${{ secrets.FRONT_URL }}
           NEXT_PUBLIC_KAKAO_OAUTH_URL=${{ secrets.OAUTH_URL }}
     - name: Deploy to Fly
-      uses: superfly/flyctl-actions@1.3
+      uses: superfly/flyctl-actions@1.4
       with:
         command: deploy
