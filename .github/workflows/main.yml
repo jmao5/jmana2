@@ -10,7 +10,14 @@ jobs:
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: 👀 Read app name
+        uses: SebRollen/toml-action@v1.0.2
+        id: app_name
+        with:
+          file: fly.toml
+          field: app
+      - name: 🚀 Deploy Production
+        uses: superfly/flyctl-actions/@1.5
         with:
           args: deploy --remote-only --build-arg NEXT_PUBLIC_KAKAO_OAUTH_URL=${{ secrets.OAUTH_URL }} --app ${{ steps.app_name.outputs.value }}
         env:
