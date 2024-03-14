@@ -21,6 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <meta
+        httpEquiv="Content-Security-Policy"
+        content="upgrade-insecure-requests"
+      />
+
       <body className={cn(`${PoorStory.className} flex flex-col items-center`)}>
         <ThemeProvider
           attribute="class"
