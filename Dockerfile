@@ -12,6 +12,9 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+# Copy .env file
+COPY .env ./
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
