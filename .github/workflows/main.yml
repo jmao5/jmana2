@@ -22,4 +22,4 @@ jobs:
     - name: Deploy to Fly
       uses: superfly/flyctl-actions@1.4
       with:
-        command: deploy
+        command: deploy --remote-only
