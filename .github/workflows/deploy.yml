@@ -10,7 +10,7 @@ jobs:
     concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions@master
+      - uses: superfly/flyctl-actions@1.4
       - name: Deploy with build argument
         with:
           args: deploy --remote-only
