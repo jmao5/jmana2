@@ -32,7 +32,7 @@ jobs:
     needs: [lint]
     steps:
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 👀 Read app name
         uses: SebRollen/toml-action@v1.0.2
@@ -42,8 +42,8 @@ jobs:
           field: app
 
       - name: 🚀 Deploy Production
-        uses: superfly/flyctl-actions@1.4
+        uses: superfly/flyctl-actions/setup-flyctl@main
         with:
-          args: deploy --remote-only --build-arg COMMIT_SHA=${{ github.sha }} --build-arg BACKEND_URL=${{ secrets.BACKEND_URL }} --build-arg FRONT_URL=${{ secrets.FRONT_URL }} --build-arg OAUTH_URL=${{ secrets.OAUTH_URL }}
+          args: flyctl deploy --remote-only --build-arg COMMIT_SHA=${{ github.sha }} --build-arg BACKEND_URL=${{ secrets.BACKEND_URL }} --build-arg FRONT_URL=${{ secrets.FRONT_URL }} --build-arg OAUTH_URL=${{ secrets.OAUTH_URL }} 
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
