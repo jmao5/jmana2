@@ -1,12 +1,14 @@
 "use client";
 
 import { NETWORK } from "@/constants/api";
+import https from "https";
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { getCookie } from "cookies-next";
 
 export const axiosInstanceClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
   timeout: NETWORK.TIMEOUT,
+  httpsAgent: new https.Agent({ rejectUnauthorized: false }),
   authorization: true,
 });
 
