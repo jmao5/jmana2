@@ -36,9 +36,6 @@ RUN npm prune --omit=dev
 # Final stage for app image
 FROM base
 
-# Copy .env file
-COPY .env ./
-
 # Copy built application
 COPY --from=build /app /app
 
