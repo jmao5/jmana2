@@ -44,7 +44,7 @@ jobs:
       - name: 🚀 Deploy Production
         uses: superfly/flyctl-actions@1.4
         with:
-          args: deploy --remote-only --build-arg COMMIT_SHA=${{ github.sha }} --build-arg NEXT_PUBLIC_API_BASE_URL=${{ secrets.BACKEND_URL }} --build-argNEXT_PUBLIC_FE_URL=${{ secrets.FRONT_URL }} --build-arg NEXT_PUBLIC_KAKAO_OAUTH_URL=${{ secrets.OAUTH_URL }} --app ${{ steps.app_name.outputs.value }}
+          args: deploy --remote-only --build-arg COMMIT_SHA=${{ github.sha }} --build-arg NEXT_PUBLIC_KAKAO_OAUTH_URL=${{ secrets.OAUTH_URL }} --app ${{ steps.app_name.outputs.value }}
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         
