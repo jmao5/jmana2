@@ -11,6 +11,8 @@ import { Toast } from "@/components/common/Toaster/customToast";
 const KakaoCallbackPage = () => {
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
+  const frontRedirect = searchParams.get("frontRedirect");
+  console.log("frontRedirect : ", frontRedirect);
 
   const router = useRouter();
 
@@ -42,7 +44,9 @@ const KakaoCallbackPage = () => {
         setIsAuth(true);
 
         Toast.success("로그인 성공!");
-        router.push("/");
+        const reUrl = localStorage.getItem("reUrl");
+        localStorage.removeItem("reUrl");
+        router.push(reUrl ?? "/");
       } catch (err) {
         console.error(err);
 
