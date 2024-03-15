@@ -2,7 +2,6 @@
 "use client";
 
 import LinkButton from "@/components/common/LinkButton";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
