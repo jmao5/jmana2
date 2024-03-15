@@ -2,7 +2,7 @@
 "use client";
 
 import LinkButton from "@/components/common/LinkButton";
-import Link from "next/link";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const LoginPage = () => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
     <div>
       <div className="flex flex-col items-center justify-center gap-20">
         {/* <h1 className={`${gugi.className} text-[3.4rem] font-black`}>manaJ</h1> */}
-        <img src="/images/logo.png" alt="로고" width={300} height={300} />
+        <Image src="/images/logo.png" alt="로고" width={300} height={300} />
         {/* <Link
           href={`${
             process.env.NEXT_PUBLIC_KAKAO_OAUTH_URL
@@ -25,7 +25,7 @@ const LoginPage = () => {
             router.push(`${process.env.NEXT_PUBLIC_KAKAO_OAUTH_URL}`);
           }}
         >
-          <img
+          <Image
             src="/images/kakaoLogin 1.png"
             alt="카카오 로그인"
             width={300}

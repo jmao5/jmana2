@@ -4,6 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { getCookie } from "cookies-next";
 import { Search } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Navigation() {
@@ -21,7 +22,7 @@ export default function Navigation() {
       <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <Link href={"/"}>
-            <img
+            <Image
               className="w-12 sm:w-20"
               src="/images/logo.png"
               width={100}
