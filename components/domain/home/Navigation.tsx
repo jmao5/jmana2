@@ -31,7 +31,7 @@ export default function Navigation() {
           </Link>
           <div className="pl-4 space-x-1">
             {buttonLabels.map((button, index) => (
-              <Link key={index} href={button.url ?? "#"}>
+              <Link key={index} href={button.url ?? "#"} prefetch>
                 <button className="text-black hover:bg-slate-100 border-none py-1 px-2 rounded-sm">
                   {button.label}
                 </button>
