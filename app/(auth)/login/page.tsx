@@ -9,7 +9,7 @@ const LoginPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const reUrl = searchParams.get("redirectUrl");
-  localStorage.setItem("reUrl", reUrl ?? "");
+  localStorage.setItem("reUrl", reUrl ?? "/");
 
   return (
     <div>
