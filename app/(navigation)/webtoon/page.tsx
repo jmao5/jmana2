@@ -1,10 +1,10 @@
 "use client";
 
-import useUserIdStore from "@/stores/isUserId";
+import User from "@/components/domain/user/User";
+import { getCookie } from "cookies-next";
 
 export default function Webtoon() {
-  const { userId } = useUserIdStore();
-  console.log("userId : ", userId);
+  const token = getCookie("token");
 
-  return <h1>웹툰</h1>;
+  return <>{token ? <User /> : ""}</>;
 }

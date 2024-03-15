@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,7 @@ export default function Navigation() {
           </div>
         </div>
         <div className="flex items-center">
-          <div className="flex items-center mt-2 md:mt-0 pr-3 hidden sm:flex">
+          <div className="items-center mt-2 md:mt-0 pr-3 hidden sm:flex">
             <Search />
             <input
               type="text"

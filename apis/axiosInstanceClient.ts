@@ -19,7 +19,6 @@ axiosInstanceClient.interceptors.request.use(
       return config;
 
     const token = getCookie("token");
-    console.log("token :", token);
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
