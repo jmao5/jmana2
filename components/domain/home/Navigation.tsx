@@ -2,12 +2,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import useAuthStore from "@/stores/isAuth";
+import { getCookie } from "cookies-next";
 import { Search } from "lucide-react";
 import Link from "next/link";
 
 export default function Navigation() {
-  const { isAuth } = useAuthStore();
+  const token = getCookie("token");
 
   const buttonLabels = [
     { label: "웹툰", key: 0, url: "/webtoon" },
@@ -48,7 +48,7 @@ export default function Navigation() {
               className="placeholder-black placeholder-opacity-75 py-2 pl-2"
             />
           </div>
-          {isAuth ? (
+          {token ? (
             <Link href={"/logout"}>
               <Button variant="ghost" className="border border-stone-500">
                 로그아웃
