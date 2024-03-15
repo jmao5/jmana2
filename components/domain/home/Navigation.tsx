@@ -2,12 +2,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import useAuthStore from "@/stores/isAuth";
+import { getCookie } from "cookies-next";
 import { Search } from "lucide-react";
 import Link from "next/link";
 
 export default function Navigation() {
-  const { isAuth } = useAuthStore();
+  const token = getCookie("token");
 
   const buttonLabels = [
     { label: "웹툰", key: 0, url: "/webtoon" },
@@ -31,7 +31,7 @@ export default function Navigation() {
           </Link>
           <div className="pl-4 space-x-1">
             {buttonLabels.map((button, index) => (
-              <Link key={index} href={button.url ?? "#"}>
+              <Link key={index} href={button.url ?? "#"} prefetch>
                 <button className="text-black hover:bg-slate-100 border-none py-1 px-2 rounded-sm">
                   {button.label}
                 </button>
@@ -48,7 +48,7 @@ export default function Navigation() {
               className="placeholder-black placeholder-opacity-75 py-2 pl-2"
             />
           </div>
-          {isAuth ? (
+          {token ? (
             <Link href={"/logout"}>
               <Button variant="ghost" className="border border-stone-500">
                 로그아웃

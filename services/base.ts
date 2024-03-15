@@ -33,6 +33,8 @@ export async function safeFetch<T>(
       baseUrlType === "backend"
         ? apiUrl(pathname ?? "/")
         : routeUrl(pathname ?? "/");
+    console.log("fetchUrl : ", fetchUrl);
+
     const response = await fetch(fetchUrl, options);
 
     const customResponse: CustomResponse<T> = {
