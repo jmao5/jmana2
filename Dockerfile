@@ -19,6 +19,9 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
+# Install sharp package
+RUN npm install sharp
+
 # Install node modules
 COPY --link package-lock.json package.json ./
 RUN npm ci --include=dev
@@ -37,7 +40,6 @@ RUN --mount=type=secret,id=NEXT_PUBLIC_API_BASE_URL \
 
 # Remove development dependencies
 RUN npm prune --omit=dev
-
 
 # Final stage for app image
 FROM base
