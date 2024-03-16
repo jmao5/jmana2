@@ -24,7 +24,9 @@ export async function POST(request: NextRequest) {
     }
   );
 
-  response.cookies.set("token", tokenResponse.data.accessToken);
+  response.cookies.set("token", tokenResponse.data.accessToken, {
+    maxAge: 3600,
+  });
   response.cookies.set("refreshToken", tokenResponse.data.refreshToken);
   response.cookies.set("userId", tokenResponse.data.userId.toString());
 
