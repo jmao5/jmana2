@@ -1,13 +1,12 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import { getCookie } from "cookies-next";
+import { getServerToken } from "@/utils/auth";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navigation() {
-  const token = getCookie("token");
+  const token = getServerToken();
+  console.log("네비토큰", token);
 
   const buttonLabels = [
     { label: "웹툰", key: 0, url: "/webtoon" },

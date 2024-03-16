@@ -17,7 +17,7 @@ export const Toast = {
     toast(() => (
       <div className={classNames("toast-wrapper")}>
         <ErrorToast width="32px" height="32px" color="#f76c5e" />
-        <span className={classNames("toast-message")}>{message}</span>
+        <span>{message}</span>
       </div>
     ));
   },
