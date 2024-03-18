@@ -1,7 +1,7 @@
 export const QUERY_KEY = {
-  MY_PLANS: 'getMyPlans',
-  ALL_PLANS: 'getAllPlans',
-  PLAN: 'getPlan',
-  REMIND: 'getRemind',
-  USER_INFORMATION: 'getUserInformation',
+  MY_PLANS: "getMyPlans",
+  ALL_TOONS: "getAllToons",
+  PLAN: "getPlan",
+  REMIND: "getRemind",
+  USER_INFORMATION: "getUserInformation",
 };

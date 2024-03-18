@@ -1,4 +1,4 @@
-import { getToonList } from "@/apis/client/getToonList";
+import { getToonSeverList } from "@/apis/client/getToonList";
 import { getServerToken } from "@/utils/auth";
 import Image from "next/image";
 
@@ -8,7 +8,7 @@ export default async function Home() {
   const params = {
     size: 100,
   };
-  const { data: toonList } = await getToonList(params);
+  const { data: toonList } = await getToonSeverList(params);
 
   return (
     <ul className="grid grid-cols-3 md:grid-cols-4 gap-4">
@@ -18,11 +18,11 @@ export default async function Home() {
             <div className="w-full h-32 relative">
               <Image src={item.imagePath} alt={item.title} layout="fill" />
             </div>
-            <div className="p-4">
-              <strong className="block text-md font-semibold text-gray-800 truncate">
+            <div className="p-2">
+              <strong className="block text-md text-gray-900 truncate">
                 {item.title}
               </strong>
-              <span className="block text-gray-600 mt-1 truncate text-xs">
+              <span className="block text-gray-600 mt-1 text-sm truncate">
                 {item.genre}
               </span>
             </div>

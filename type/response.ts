@@ -759,7 +759,6 @@ export type ToonResponse = {
   genreMenu: string;
   toonSummary: string;
   activedCount: number;
-  serverDateTime: string;
 };
 
 export type ToonResponseList = ToonResponse[];
