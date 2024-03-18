@@ -749,3 +749,17 @@ export type EditMissionResponse = {
   };
   serverDateTime: string;
 };
+
+export type ToonResponse = {
+  id: number;
+  toonNum: number;
+  title: string;
+  imagePath: string;
+  genre: string;
+  genreMenu: string;
+  toonSummary: string;
+  activedCount: number;
+  serverDateTime: string;
+};
+
+export type ToonResponseList = ToonResponse[];

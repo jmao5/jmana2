@@ -31,7 +31,12 @@ export default function ErrorPage({
       <h2 className="mb-20 mt-6 text-xl font-semibold">
         데이터 처리 중 오류가 발생했어요!
       </h2>
-      <Image src="/images/error3.jpg" alt="에러 이미지" height={300} />
+      <Image
+        src="/images/error3.jpg"
+        alt="에러 이미지"
+        height={300}
+        width={300}
+      />
       <Button onClick={handleReset}>새로 고침</Button>
     </div>
   );

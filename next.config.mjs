@@ -10,6 +10,14 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "newtoki.help",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
