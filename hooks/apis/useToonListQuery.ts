@@ -5,7 +5,7 @@ import { QUERY_KEY } from "@/constants/queryKey";
 import { ToonRequest } from "@/type/axios/toon";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 
-export const useAllPlansQuery = (query: ToonRequest) => {
+export const useToonListQuery = (query: ToonRequest) => {
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
     useSuspenseInfiniteQuery({
       queryKey: [QUERY_KEY.ALL_TOONS],
