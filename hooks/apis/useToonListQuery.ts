@@ -3,11 +3,14 @@
 import { getToonClList } from "@/apis/client/getToonClList";
 import { QUERY_KEY } from "@/constants/queryKey";
 import { ToonRequest } from "@/type/axios/toon";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import {
+  useInfiniteQuery,
+  useSuspenseInfiniteQuery,
+} from "@tanstack/react-query";
 
 export const useToonListQuery = (query: ToonRequest) => {
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useInfiniteQuery({
+    useSuspenseInfiniteQuery({
       queryKey: [QUERY_KEY.ALL_TOONS],
       queryFn: async ({ pageParam = 1 }) => {
         let params = {

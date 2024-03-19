@@ -41,7 +41,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             placeholder="blur"
           />
         </div>
-        <div className="p-2">
+        <div className="p-2 min-h-20">
           <span className="block font-medium truncate">{item.title}</span>
           <span className="block text-blue-600 text-sm truncate">
             {item.genre}
