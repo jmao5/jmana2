@@ -2,32 +2,35 @@
 
 import { ToonResponse, ToonResponseList } from "@/type/response";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-interface ToonCardProps {
-  toonList: ToonResponseList;
-  token?: string;
-}
-const ToonCard: React.FC<ToonCardProps> = ({ toonList, token }) => {
-  console.log("화면단에서 토큰 : ", token);
-
+const ToonCard: React.FC<{ toonResponseList: ToonResponseList }> = ({
+  toonResponseList,
+}) => {
   return (
     <>
-      {token
-        ? toonList.map((item) => <ToonItem key={item.id} item={item} />)
-        : ""}
+      {toonResponseList.map((item, innerIndex) => (
+        <ToonCardInner key={innerIndex} item={item} />
+      ))}
     </>
   );
 };
 
-const ToonItem: React.FC<{ item: ToonResponse }> = ({ item }) => {
+const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
   const [isImgError, setIsImgError] = useState<boolean>(false);
 
   return (
     <li>
-      <a className="link block bg-white rounded-lg shadow-md overflow-hidden">
+      <Link
+        href={`${item.toonNum}`}
+        className="link block bg-white rounded-lg shadow-md overflow-hidden"
+        // prefetch={false}
+      >
         <div className="w-full h-32 relative">
           <Image
+            // src={"/images/blur.jpg"}
+            // src={item.imagePath}
             src={!isImgError ? item.imagePath : "/images/blur.jpg"}
             alt={item.title}
             layout="fill"
@@ -42,7 +45,7 @@ const ToonItem: React.FC<{ item: ToonResponse }> = ({ item }) => {
             {item.genre}
           </span>
         </div>
-      </a>
+      </Link>
     </li>
   );
 };

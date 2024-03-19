@@ -1,9 +1,10 @@
+import { WeekNumberProps } from "react-day-picker";
+
 export interface ToonRequest {
   page: number;
-  size: number;
   search: string;
-  days: number;
+  days: number | null;
   toonMark: boolean;
-  userId: number;
-  menu: number;
+  menu: string | null;
+  size: number | null;
 }

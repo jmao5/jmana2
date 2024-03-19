@@ -1,37 +1,31 @@
 "use client";
 
-import { getToonClList } from "@/apis/client/getToonList";
+import { getToonClList } from "@/apis/client/getToonClList";
 import { QUERY_KEY } from "@/constants/queryKey";
 import { ToonRequest } from "@/type/axios/toon";
-import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 export const useToonListQuery = (query: ToonRequest) => {
   const { data, fetchNextPage, hasNextPage, isLoading, isError } =
-    useSuspenseInfiniteQuery({
+    useInfiniteQuery({
       queryKey: [QUERY_KEY.ALL_TOONS],
-      queryFn: async ({ pageParam = {} }) => {
+      queryFn: async ({ pageParam = 1 }) => {
         let params = {
           ...query,
+          page: pageParam,
         };
 
-        if (pageParam) {
-          params = { ...params, ...pageParam };
-        }
-        const result = await getToonClList(params);
-        return result?.data;
+        return await getToonClList(params);
       },
-      initialPageParam: {},
+      initialPageParam: 1,
       getNextPageParam: (lastPage) => {
-        // console.log('lastPage:', lastPage);
-        const lastItem = lastPage[lastPage.length - 1];
-        // if (lastItem) console.log(query.sort, lastItem.id, lastItem.ajajas);
-        return lastItem;
+        return lastPage.isLast ? undefined : lastPage.currentPage + 1;
       },
       staleTime: 10000,
     });
-  // console.log('Data:', data?.pages);
+
   return {
-    loadedPlans: data?.pages || [],
+    loadedToons: data?.pages || [],
     fetchNextPage,
     hasNextPage,
     isLoading,
