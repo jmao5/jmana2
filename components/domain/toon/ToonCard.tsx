@@ -1,5 +1,6 @@
 "use client";
 
+import { BLUR_IMAGE_SRC } from "@/constants/blurImageSrc";
 import { ToonResponse, ToonResponseList } from "@/type/response";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,13 +31,14 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
         <div className="w-full h-32 relative">
           <Image
             alt={item.title}
-            // src={"/images/blur.jpg"}
+            src={"/images/blur.jpg"}
             // src={item.imagePath}
-            src={!isImgError ? item.imagePath : "/images/blur.jpg"}
+            // src={!isImgError ? item.imagePath : "/images/blur.jpg"}
             priority={true}
             layout="fill"
-            objectFit="contain"
             onError={() => setIsImgError(true)}
+            blurDataURL={BLUR_IMAGE_SRC}
+            placeholder="blur"
           />
         </div>
         <div className="p-2">
