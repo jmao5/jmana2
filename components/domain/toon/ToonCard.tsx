@@ -24,7 +24,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
   return (
     <li>
       <Link
-        href={`${item.toonNum}`}
+        href={`/chapter/${item.toonNum}`}
         className="link block bg-white rounded-lg shadow-md overflow-hidden"
         // prefetch={false}
       >
