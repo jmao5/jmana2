@@ -38,11 +38,12 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
           />
         </div>
         <div className="p-2">
-          <strong className="block text-md text-gray-900 truncate">
-            {item.title}
-          </strong>
-          <span className="block text-gray-600 mt-1 text-sm truncate">
+          <span className="block font-medium truncate">{item.title}</span>
+          <span className="block text-blue-600 text-sm truncate">
             {item.genre}
+          </span>
+          <span className="block text-gray-400 text-sm truncate">
+            {item.updateDate.toString()}
           </span>
         </div>
       </Link>

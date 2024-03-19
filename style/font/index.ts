@@ -4,8 +4,8 @@ export const PoorStory = localFont({
   src: [
     {
       path: "./PoorStory-Regular.ttf",
-      weight: "700",
+      weight: "400",
       style: "normal",
-    }
+    },
   ],
 });

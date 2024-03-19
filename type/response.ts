@@ -758,6 +758,7 @@ export type ToonResponse = {
   genre: string;
   genreMenu: string;
   toonSummary: string;
+  updateDate: Date;
   activedCount: number;
 };
 

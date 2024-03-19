@@ -1,10 +1,10 @@
+import Toaster from "@/components/common/Toaster/Toaster";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
-import { cn } from "@/lib/utils";
+import TanstackQueryProvider from "@/provider/TanstackQueryProvider";
 import { PoorStory } from "@/style/font";
+import classNames from "classnames";
 import type { Metadata } from "next";
 import "./globals.css";
-import Toaster from "@/components/common/Toaster/Toaster";
-import TanstackQueryProvider from "@/provider/TanstackQueryProvider";
 
 export const metadata: Metadata = {
   title: "manaJ",
@@ -26,7 +26,12 @@ export default function RootLayout({
         content="upgrade-insecure-requests"
       /> */}
 
-      <body className={cn(`${PoorStory.className} flex flex-col items-center`)}>
+      <body
+        className={classNames(
+          PoorStory.className,
+          `flex flex-col items-center`
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
