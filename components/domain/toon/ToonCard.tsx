@@ -29,11 +29,13 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
       >
         <div className="w-full h-32 relative">
           <Image
+            alt={item.title}
             // src={"/images/blur.jpg"}
             // src={item.imagePath}
             src={!isImgError ? item.imagePath : "/images/blur.jpg"}
-            alt={item.title}
+            priority={true}
             layout="fill"
+            objectFit="contain"
             onError={() => setIsImgError(true)}
           />
         </div>
