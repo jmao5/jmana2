@@ -34,7 +34,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             // src={"/images/blur.jpg"}
             // src={item.imagePath}
             src={!isImgError ? item.imagePath : "/images/blur.jpg"}
-            priority={true}
+            // priority={true}
             // className="w-full h-full"
             // width={100}
             // height={100}

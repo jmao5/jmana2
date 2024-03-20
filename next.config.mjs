@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "newtoki.help",
       },
+      {
+        protocol: "https",
+        hostname: "nownowcdn.com",
+      },
     ],
   },
 };

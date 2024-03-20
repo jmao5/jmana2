@@ -14,16 +14,16 @@ interface ToonCardProps {
 
 const ToonList: React.FC<ToonCardProps> = ({ token }) => {
   // const { handleScroll, scrollableRef } = useScroll();
-
+  const search = "";
   const { loadedToons, fetchNextPage, hasNextPage, isLoading } = token
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useToonListQuery({
         page: 1,
         size: null,
-        search: "",
+        search: search,
         days: null,
         toonMark: false,
-        menu: null,
+        menu: search ? null : "TOON",
       })
     : {
         loadedToons: [],

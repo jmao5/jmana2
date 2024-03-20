@@ -1,15 +1,14 @@
 import { getSvChapterList } from "@/apis/client/getSvChapter";
 import { getSvToonInfo } from "@/apis/client/getSvToon";
-import classNames from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 
-export default async function PlanIdPage({
+export default async function ChapterPage({
   params,
 }: {
   params: { toonId: number };
 }) {
   const { data: toonInfo } = await getSvToonInfo(params.toonId);
-
   const { data: chapterList } = await getSvChapterList(params.toonId);
 
   return (
@@ -37,19 +36,18 @@ export default async function PlanIdPage({
         <ul className="divide-y divide-gray-300">
           {/* Map over the chapters array and render each chapter */}
           {chapterList.map((chapter) => (
-            <li
-              key={chapter.id}
-              className="py-4 flex justify-between items-center"
-            >
-              <a
-                href={`#${chapter.id}`}
-                className="flex-grow text-lg font-semibold text-blue-600 hover:underline"
+            <li key={chapter.id}>
+              <Link
+                href={`/chapter/image/${chapter.id}`}
+                className="py-4 flex justify-between items-center"
               >
-                {chapter.cateTitle}
-              </a>
-              <span className="text-gray-600 ml-4">
-                {chapter.uploadDate.toString()}
-              </span>
+                <span className="flex-grow text-lg font-semibold text-black">
+                  {chapter.cateTitle}
+                </span>
+                <span className="text-gray-600 ml-4">
+                  {chapter.uploadDate.toString()}
+                </span>
+              </Link>
             </li>
           ))}
         </ul>

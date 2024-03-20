@@ -771,3 +771,9 @@ export type ChapterResponse = {
   chapterSeq: number;
   updatedAt: Date;
 };
+
+export type ChapterImageResponse = {
+  id: number;
+  chapterId: number;
+  toonImageUrl: string;
+};
