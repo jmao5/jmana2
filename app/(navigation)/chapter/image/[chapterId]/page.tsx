@@ -11,19 +11,22 @@ export default async function ChapterImagePage({
 
   return (
     <>
-      {chapterImageList.map((images, index) => (
-        <div className="w-full h-screen relative" key={index}>
-          <Image
-            alt={images.id.toString()}
-            src={images.toonImageUrl}
-            layout="fill"
-            objectFit="contain"
-            // blurDataURL={BLUR_IMAGE_SRC}
-            // placeholder="blur"
-            // unoptimized={true}
-          />
-        </div>
-      ))}
+      {chapterImageList.map((images, index) => {
+        return (
+          <div className="w-full" key={index}>
+            <Image
+              alt={images.id.toString()}
+              src={images.toonImageUrl}
+              width={500}
+              height={2000}
+              // layout="fill"
+              // blurDataURL={BLUR_IMAGE_SRC}
+              // placeholder="blur"
+              // unoptimized={true}
+            />
+          </div>
+        );
+      })}
     </>
   );
 }
