@@ -16,8 +16,8 @@ export default async function ChapterImagePage({
           <Image
             alt={images.id.toString()}
             src={images.toonImageUrl}
-            width={800}
-            height={1600}
+            layout="fill"
+            objectFit="contain"
             // blurDataURL={BLUR_IMAGE_SRC}
             // placeholder="blur"
             // unoptimized={true}
