@@ -1,5 +1,7 @@
 import { getSvChapterImageList } from "@/apis/client/getSvChapterImage";
+import LoadingSpiner from "@/components/common/LoadingSpiner";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export default async function ChapterImagePage({
   params,
@@ -10,7 +12,7 @@ export default async function ChapterImagePage({
   const { data: chapterImageList } = await getSvChapterImageList(chapterId);
 
   return (
-    <>
+    <Suspense fallback={<LoadingSpiner />}>
       {chapterImageList.map((images, index) => {
         return (
           <div className="w-full" key={index}>
@@ -27,6 +29,6 @@ export default async function ChapterImagePage({
           </div>
         );
       })}
-    </>
+    </Suspense>
   );
 }
