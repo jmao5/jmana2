@@ -19,7 +19,7 @@ export default async function PlanIdPage({
   ];
 
   return (
-    <div className={classNames("plans-page")}>
+    <div className="w-full">
       <div className="flex items-start justify-center bg-white p-6">
         <div className="w-1/4 flex-shrink-0">
           <Image
