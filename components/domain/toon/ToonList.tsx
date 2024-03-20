@@ -14,15 +14,23 @@ interface ToonCardProps {
 
 const ToonList: React.FC<ToonCardProps> = ({ token }) => {
   // const { handleScroll, scrollableRef } = useScroll();
-  const { loadedToons, fetchNextPage, hasNextPage, isLoading } =
-    useToonListQuery({
-      page: 1,
-      size: null,
-      search: "",
-      days: null,
-      toonMark: false,
-      menu: null,
-    });
+
+  const { loadedToons, fetchNextPage, hasNextPage, isLoading } = token
+    ? // eslint-disable-next-line react-hooks/rules-of-hooks
+      useToonListQuery({
+        page: 1,
+        size: null,
+        search: "",
+        days: null,
+        toonMark: false,
+        menu: null,
+      })
+    : {
+        loadedToons: [],
+        fetchNextPage: () => {},
+        hasNextPage: false,
+        isLoading: false,
+      };
 
   const flatLoadedToons = useMemo(() => loadedToons.flat(), [loadedToons]);
 

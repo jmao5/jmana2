@@ -762,4 +762,12 @@ export type ToonResponse = {
   activedCount: number;
 };
 
-export type ToonResponseList = ToonResponse[];
+export type ChapterResponse = {
+  id: number;
+  toonId: number;
+  uploadDate: Date;
+  imgNum: number;
+  cateTitle: string;
+  chapterSeq: number;
+  updatedAt: Date;
+};

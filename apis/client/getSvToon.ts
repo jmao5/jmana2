@@ -1,8 +1,8 @@
-import { ToonResponse, ToonResponseList } from "@/type/response";
+import { ToonResponse } from "@/type/response";
 import { axiosInstanceServer } from "../axiosInstanceServer";
 
 export const getSvToonList = async (parmas: { [key: string]: any }) => {
-  return await axiosInstanceServer.get<ToonResponseList>("/toons", {
+  return await axiosInstanceServer.get<ToonResponse[]>("/toons", {
     params: parmas,
     authorization: false,
   });
