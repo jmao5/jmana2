@@ -25,15 +25,17 @@ export default async function PlanIdPage({
           <Image
             src={data.imagePath}
             alt={data.title}
-            className="rounded-lg shadow-md h-40"
+            className="rounded-lg shadow-md h-44"
             width={100}
             height={100}
           />
         </div>
-        <div className="w-3/4 ml-6 flex-grow">
+        <div className="w-3/4 ml-6 flex-grow overflow-hidden">
           <h1 className="text-3xl font-semibold mb-2">{data.title}</h1>
           <p className="text-gray-600 text-sm mb-2">{data.genre}</p>
-          <p className="text-base leading-relaxed">{data.toonSummary}</p>
+          <p className="text-base leading-relaxed line-clamp-4">
+            {data.toonSummary}
+          </p>
         </div>
       </div>
 
