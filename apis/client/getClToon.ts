@@ -2,8 +2,7 @@ import { ToonRequest } from "@/type/axios/toon";
 import { axiosInstanceClient } from "../axiosInstanceClient";
 import { ToonResponseList } from "@/type/response";
 
-// export const getToonClList = async () => {
-export const getToonClList = async (query: ToonRequest) => {
+export const getClToonList = async (query: ToonRequest) => {
   const { data } = await axiosInstanceClient.get<ToonResponseList>(
     "/api/toons",
     {

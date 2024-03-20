@@ -1,7 +1,13 @@
+import { getSvToonInfo } from "@/apis/client/getSvToon";
 import classNames from "classnames";
+import Image from "next/image";
 
-export default function PlanIdPage({ params }: { params: { toonId: string } }) {
-  const { toonId } = params;
+export default async function PlanIdPage({
+  params,
+}: {
+  params: { toonId: number };
+}) {
+  const { data } = await getSvToonInfo(params.toonId);
 
   // Example chapter data (replace with your actual chapter data)
   const chapters = [
@@ -16,19 +22,18 @@ export default function PlanIdPage({ params }: { params: { toonId: string } }) {
     <div className={classNames("plans-page")}>
       <div className="flex items-start justify-center bg-white p-6">
         <div className="w-1/4 flex-shrink-0">
-          <img
-            src="https://newtoki.help/data/wtimg/1684405028_77983069162733.jpg"
-            alt="독립일기"
+          <Image
+            src={data.imagePath}
+            alt={data.title}
             className="rounded-lg shadow-md h-40"
+            width={100}
+            height={100}
           />
         </div>
         <div className="w-3/4 ml-6 flex-grow">
-          <h1 className="text-3xl font-semibold mb-2">독립일기</h1>
-          <p className="text-gray-600 text-sm mb-2">드라마, 일상</p>
-          <p className="text-base leading-relaxed">
-            별별 일상들 속에서 벌어지는 이야기들, 독립생활이란 도대체 무엇인가?
-            여러분의 독립적인 일상을 응원합니다.
-          </p>
+          <h1 className="text-3xl font-semibold mb-2">{data.title}</h1>
+          <p className="text-gray-600 text-sm mb-2">{data.genre}</p>
+          <p className="text-base leading-relaxed">{data.toonSummary}</p>
         </div>
       </div>
 

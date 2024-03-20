@@ -1,6 +1,6 @@
 "use client";
 
-import { getToonClList } from "@/apis/client/getToonClList";
+import { getClToonList } from "@/apis/client/getClToon";
 import { QUERY_KEY } from "@/constants/queryKey";
 import { ToonRequest } from "@/type/axios/toon";
 import {
@@ -18,7 +18,7 @@ export const useToonListQuery = (query: ToonRequest) => {
           page: pageParam,
         };
 
-        return await getToonClList(params);
+        return await getClToonList(params);
       },
       initialPageParam: 1,
       getNextPageParam: (lastPage) => {

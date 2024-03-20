@@ -24,18 +24,21 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
   return (
     <li>
       <Link
-        href={`/chapter/${item.toonNum}`}
+        href={`/chapter/${item.id}`}
         className="link block bg-white rounded-lg shadow-md overflow-hidden"
         // prefetch={false}
       >
         <div className="w-full h-32 relative">
           <Image
             alt={item.title}
-            // src={"/images/blur.jpg"}
+            src={"/images/blur.jpg"}
             // src={item.imagePath}
-            src={!isImgError ? item.imagePath : "/images/blur.jpg"}
+            // src={!isImgError ? item.imagePath : "/images/blur.jpg"}
             priority={true}
-            layout="fill"
+            className="w-full h-full"
+            width={100}
+            height={100}
+            // layout="fill"
             onError={() => setIsImgError(true)}
             blurDataURL={BLUR_IMAGE_SRC}
             placeholder="blur"
