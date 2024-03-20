@@ -10,11 +10,11 @@ import "./index.scss";
 
 interface ToonCardProps {
   token?: string;
+  search: string;
 }
 
-const ToonList: React.FC<ToonCardProps> = ({ token }) => {
+const ToonList: React.FC<ToonCardProps> = ({ token, search }) => {
   // const { handleScroll, scrollableRef } = useScroll();
-  const search = "";
   const { loadedToons, fetchNextPage, hasNextPage, isLoading } = token
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useToonListQuery({
