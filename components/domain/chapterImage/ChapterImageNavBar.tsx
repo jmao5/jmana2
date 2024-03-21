@@ -1,13 +1,13 @@
 "use client";
 
-import useNavVisibleStore from "@/stores/isNavVisible";
-import Link from "next/link";
+import Hamburger from "@/public/svg/hamburger.svg";
 import LeftArrow from "@/public/svg/leftArrow.svg";
+import Play from "@/public/svg/play.svg";
 import RightArrow from "@/public/svg/rightArrow.svg";
 import TightMan from "@/public/svg/tightman.svg";
-import Play from "@/public/svg/play.svg";
-import Hamburger from "@/public/svg/hamburger.svg";
+import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterPrevNextResponse } from "@/type/response";
+import Link from "next/link";
 
 const ChapterImageNavBar = ({
   prevNextInfo,
@@ -27,13 +27,15 @@ const ChapterImageNavBar = ({
         <div className="flex justify-between w-[312px]">
           {prevNextInfo.titlePrev && (
             <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-              <Link href={`/chapter/image/${prevNextInfo.titlePrev}`}>
+              <Link href={`/chapter/image/${prevNextInfo.titlePrev}`} prefetch>
                 <LeftArrow />
               </Link>
             </button>
           )}
           <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-            <Hamburger />
+            <Link href={`/chapter/${prevNextInfo.toonId}`} prefetch>
+              <Hamburger />
+            </Link>
           </button>
           <button className="relative h-12 overflow-hidden w-12 rounded-full bg-black light:bg-white border border-solid !border-opacity-10 border-white light:border-black relative !border-0">
             <div
@@ -54,7 +56,7 @@ const ChapterImageNavBar = ({
           </button>
           {prevNextInfo.titleNext && (
             <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-              <Link href={`/chapter/image/${prevNextInfo.titleNext}`}>
+              <Link href={`/chapter/image/${prevNextInfo.titleNext}`} prefetch>
                 <RightArrow />
               </Link>
             </button>

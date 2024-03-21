@@ -781,6 +781,7 @@ export type ChapterImageResponse = {
 
 export type ChapterPrevNextResponse = {
   id: number;
+  toonId: number;
   titlePrev: number;
   titleNext: number;
   cateTitle: string;

@@ -1,10 +1,10 @@
 "use client";
 
+import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterImageResponse, ChapterPrevNextResponse } from "@/type/response";
+import { useEffect } from "react";
 import ChapterImageList from "./ChapterImageList";
 import ChapterImageNavBar from "./ChapterImageNavBar";
-import useNavVisibleStore from "@/stores/isNavVisible";
-import { useEffect } from "react";
 
 const ChapterImage = ({
   chapterImageList,

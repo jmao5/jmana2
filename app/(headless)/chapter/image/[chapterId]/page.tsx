@@ -16,11 +16,9 @@ export default async function ChapterImagePage({
   const { data: prevNextInfo } = await getSvPrevNext(chapterId);
 
   return (
-    <Suspense fallback={<LoadingSpiner />}>
-      <ChapterImage
-        chapterImageList={chapterImageList}
-        prevNextInfo={prevNextInfo}
-      />
-    </Suspense>
+    <ChapterImage
+      chapterImageList={chapterImageList}
+      prevNextInfo={prevNextInfo}
+    />
   );
 }
