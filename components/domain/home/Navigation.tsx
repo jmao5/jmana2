@@ -18,7 +18,7 @@ export default function Navigation() {
     <header className="border-b border-background-darken flex h-16 w-full items-center justify-between space-x-4 bg-background p-3 fixed max-w-screen-sm z-40 top-0">
       <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
-          <Link href={"/"}>
+          <a href={"/"}>
             <Image
               className="w-12 sm:w-20"
               src="/images/logo.png"
@@ -26,7 +26,7 @@ export default function Navigation() {
               height={100}
               alt="로고"
             />
-          </Link>
+          </a>
           <div className="pl-4 space-x-1 hidden sm:flex">
             {buttonLabels.map((button, index) => (
               <Link key={index} href={button.url ?? "#"} prefetch>

@@ -1,15 +1,17 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 
 export default function SearchIcon() {
-  const router = useRouter();
   const [search, setSearch] = useState("");
 
   const searchDo = () => {
-    router.push(`/?search=${search}`);
+    window.location.replace(`/?search=${search}`);
     setSearch("");
+  };
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
   };
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -21,8 +23,8 @@ export default function SearchIcon() {
   return (
     <div className="flex items-center pr-1 md:pr-3">
       <div className="relative w-40">
-        <div
-          className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none"
+        <button
+          className="absolute inset-y-0 left-0 flex items-center pl-2"
           onClick={searchDo}
         >
           <svg
@@ -36,11 +38,13 @@ export default function SearchIcon() {
           >
             <path d="M20 20L15.5 15.5M17 10a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-        </div>
+        </button>
         <input
           type="text"
           className="block w-full py-3 pl-10 text-sm border-b border-black focus:outline-none placeholder-gray-400"
           placeholder="제목을 검색해보세요"
+          value={search}
+          onChange={handleSearch}
           onKeyDown={handleKeyPress}
         />
       </div>

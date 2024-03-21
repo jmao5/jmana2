@@ -7,6 +7,7 @@ export default function Home({
   searchParams: { search: string };
 }) {
   const token = getServerToken();
+
   // const params = {
   //   size: 100,
   // };
