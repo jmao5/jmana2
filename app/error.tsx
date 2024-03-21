@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 import Button from "@/components/common/Button";
 import Image from "next/image";
+import LinkButton from "@/components/common/LinkButton";
 
 export default function ErrorPage({
   error,
@@ -38,6 +39,9 @@ export default function ErrorPage({
         width={300}
       />
       <Button onClick={handleReset}>새로 고침</Button>
+      <LinkButton href={"/"} className="mt-4">
+        시작 페이지로 돌아가기
+      </LinkButton>
     </div>
   );
 }

@@ -13,9 +13,7 @@ export default async function ChapterImagePage({
 
   return (
     <Suspense fallback={<LoadingSpiner />}>
-      {chapterImageList.map((image, index) => (
-        <ChapterImage chapterImage={image} key={index} />
-      ))}
+      <ChapterImage chapterImageList={chapterImageList} />
     </Suspense>
   );
 }
