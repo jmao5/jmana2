@@ -1,6 +1,6 @@
 import { getSvChapterImageList } from "@/apis/client/getSvChapterImage";
 import LoadingSpiner from "@/components/common/LoadingSpiner";
-import Image from "next/image";
+import ChapterImage from "@/components/domain/chapterImage/ChapterImage";
 import { Suspense } from "react";
 
 export default async function ChapterImagePage({
@@ -13,22 +13,9 @@ export default async function ChapterImagePage({
 
   return (
     <Suspense fallback={<LoadingSpiner />}>
-      {chapterImageList.map((images, index) => {
-        return (
-          <div className="w-full" key={index}>
-            <Image
-              alt={images.id.toString()}
-              src={images.toonImageUrl}
-              width={500}
-              height={2000}
-              // layout="fill"
-              // blurDataURL={BLUR_IMAGE_SRC}
-              // placeholder="blur"
-              // unoptimized={true}
-            />
-          </div>
-        );
-      })}
+      {chapterImageList.map((image, index) => (
+        <ChapterImage chapterImage={image} key={index} />
+      ))}
     </Suspense>
   );
 }
