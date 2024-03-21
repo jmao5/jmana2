@@ -2,6 +2,11 @@
 
 import useNavVisibleStore from "@/stores/isNavVisible";
 import Link from "next/link";
+import LeftArrow from "@/public/svg/leftArrow.svg";
+import RightArrow from "@/public/svg/rightArrow.svg";
+import TightMan from "@/public/svg/tightman.svg";
+import Play from "@/public/svg/play.svg";
+import Hamburger from "@/public/svg/hamburger.svg";
 
 const ChapterImageNavBar = () => {
   const { isNavVisible } = useNavVisibleStore();
@@ -15,57 +20,35 @@ const ChapterImageNavBar = () => {
         제목
       </div>
 
-      <div className="fixed bottom-32 left-1/2 transform -translate-x-1/2 flex items-center justify-center space-x-4">
-        {/* {chapterPrevNext.titlePrev && (
-          <button className="h-12 w-12 rounded-full bg-black text-white hover:bg-black">
-            <Link
-              href={
-                chapterPrevNext.titlePrev
-                  ? `/list/image?id=${chapterPrevNext.titlePrev}&toonId=${searchParams.toonId}`
-                  : "#"
-              }
-              prefetch
-            >
-              <ChevronLeftIcon className="h-6 w-6" />
-            </Link>
+      <div className="fixed w-full bottom-16 flex justify-center z-navigationBar">
+        <div className="flex justify-between w-[312px]">
+          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+            <LeftArrow />
           </button>
-        )} */}
-
-        <button className="h-12 w-12 rounded-full bg-black text-white hover:bg-black">
-          {/* <Link href={`/list?id=${searchParams.toonId}`} > */}
-          {/* <HamburgerIcon className="h-6 w-6" /> */}
-          {/* </Link> */}
-        </button>
-
-        <button
-        // className={`h-12 w-12 rounded-full ${isRun ? "bg-white text-black" : "bg-black text-white"
-        // } hover:bg-${isRun ? "white" : "black"}`}
-        // onClick={fnRun}
-        >
-          {/* {isRun ? "Stop" : "Run"} */} Run
-        </button>
-
-        <button
-          // onClick={scrollToBottom}
-          className="h-12 w-12 rounded-full bg-black text-white hover:bg-black"
-        >
-          {/* <PlayIcon className="h-6 w-6" /> */}
-        </button>
-
-        {/* {chapterPrevNext.titleNext && (
-          <button className="h-12 w-12 rounded-full bg-black text-white hover:bg-black">
-            <Link
-              href={
-                chapterPrevNext.titleNext
-                  ? `/list/image?id=${chapterPrevNext.titleNext}&toonId=${searchParams.toonId}`
-                  : "#"
-              }
-              prefetch
-            >
-              <ChevronRightIcon className="h-6 w-6" />
-            </Link>
+          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+            <Hamburger />
           </button>
-        )} */}
+          <button className="relative h-12 overflow-hidden w-12 rounded-full bg-black light:bg-white border border-solid !border-opacity-10 border-white light:border-black relative !border-0">
+            <div
+              className="absolute inset-0 w-full h-full rounded-full animate-spin"
+              style={{
+                animationDuration: "3s",
+                background:
+                  "linear-gradient(45deg, rgb(4, 202, 252) 0%, rgb(19, 187, 252) 25%, rgb(76, 126, 252) 50%, rgb(127, 72, 252) 75%, rgb(148, 50, 252) 100%)",
+              }}
+            ></div>
+            <div className="absolute inset-1 w-42 h-42 bg-black rounded-full light:bg-white"></div>
+            <div className="relative w-12 h-12 p-12">
+              <TightMan />
+            </div>
+          </button>
+          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+            <Play />
+          </button>
+          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+            <RightArrow />
+          </button>
+        </div>
       </div>
     </div>
   );
