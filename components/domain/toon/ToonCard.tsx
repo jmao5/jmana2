@@ -39,6 +39,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             // width={100}
             // height={100}
             layout="fill"
+            quality={30}
             onError={() => setIsImgError(true)}
             blurDataURL={BLUR_IMAGE_SRC}
             placeholder="blur"

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChapterImageResponse } from "@/type/response";
+import { ChapterImageResponse, ChapterPrevNextResponse } from "@/type/response";
 import ChapterImageList from "./ChapterImageList";
 import ChapterImageNavBar from "./ChapterImageNavBar";
 import useNavVisibleStore from "@/stores/isNavVisible";
@@ -8,8 +8,10 @@ import { useEffect } from "react";
 
 const ChapterImage = ({
   chapterImageList,
+  prevNextInfo,
 }: {
   chapterImageList: ChapterImageResponse[];
+  prevNextInfo: ChapterPrevNextResponse;
 }) => {
   const { isNavVisible, setIsNavVisible } = useNavVisibleStore();
 
@@ -28,7 +30,7 @@ const ChapterImage = ({
 
   return (
     <div className="w-full" onClick={toggleNav}>
-      <ChapterImageNavBar />
+      <ChapterImageNavBar prevNextInfo={prevNextInfo} />
       {chapterImageList.map((chapterImage, index) => (
         <ChapterImageList chapterImage={chapterImage} key={index} />
       ))}

@@ -7,24 +7,31 @@ import RightArrow from "@/public/svg/rightArrow.svg";
 import TightMan from "@/public/svg/tightman.svg";
 import Play from "@/public/svg/play.svg";
 import Hamburger from "@/public/svg/hamburger.svg";
+import { ChapterPrevNextResponse } from "@/type/response";
 
-const ChapterImageNavBar = () => {
+const ChapterImageNavBar = ({
+  prevNextInfo,
+}: {
+  prevNextInfo: ChapterPrevNextResponse;
+}) => {
   const { isNavVisible } = useNavVisibleStore();
-  console.log("isNavVisible : ", isNavVisible);
+  console.log("prevNextInfo : ", prevNextInfo);
 
   return (
     <div className={`${isNavVisible ? "block" : "hidden"}`}>
-      {/* <div> */}
       <div className="fixed top-0 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-90 w-full h-12 flex items-center justify-center text-white">
-        {/* {chapterPrevNext.cateTitle} */}
-        제목
+        {prevNextInfo.cateTitle}
       </div>
 
       <div className="fixed w-full bottom-16 flex justify-center z-navigationBar">
         <div className="flex justify-between w-[312px]">
-          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-            <LeftArrow />
-          </button>
+          {prevNextInfo.titlePrev && (
+            <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+              <Link href={`/chapter/image/${prevNextInfo.titlePrev}`}>
+                <LeftArrow />
+              </Link>
+            </button>
+          )}
           <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
             <Hamburger />
           </button>
@@ -45,9 +52,13 @@ const ChapterImageNavBar = () => {
           <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
             <Play />
           </button>
-          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-            <RightArrow />
-          </button>
+          {prevNextInfo.titleNext && (
+            <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+              <Link href={`/chapter/image/${prevNextInfo.titleNext}`}>
+                <RightArrow />
+              </Link>
+            </button>
+          )}
         </div>
       </div>
     </div>

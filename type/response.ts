@@ -778,3 +778,10 @@ export type ChapterImageResponse = {
   chapterId: number;
   toonImageUrl: string;
 };
+
+export type ChapterPrevNextResponse = {
+  id: number;
+  titlePrev: number;
+  titleNext: number;
+  cateTitle: string;
+};
