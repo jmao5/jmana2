@@ -28,6 +28,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "nownowcdn.com",
       },
+      {
+        protocol: "https",
+        hostname: "m.nownowcdn.com",
+      },
     ],
   },
 };
