@@ -1,4 +1,4 @@
-import { getUserClientInformation } from "@/apis/client/getUserInformation";
+import { getUserClientInformation } from "@/apis/client/getClUser";
 import { QUERY_KEY } from "@/constants/queryKey";
 import { useSuspenseQuery } from "@tanstack/react-query";
 

@@ -224,6 +224,7 @@ export type UserResponse = {
   status: number;
   data: {
     basicInfo: {
+      email: string;
       nickname: string;
       gender: string;
       birth: string;
