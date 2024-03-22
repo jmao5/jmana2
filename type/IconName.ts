@@ -30,4 +30,8 @@ export type IconName =
   | "FAVORITE"
   | "ARROW_UP"
   | "ARROW_LEFT"
-  | "ARROW_RIGHT";
+  | "ARROW_RIGHT"
+  | "MENU"
+  | "MORE_VERT"
+  | "PLAY"
+  | "DIRECTIONS_RUN";

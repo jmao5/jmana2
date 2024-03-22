@@ -21,7 +21,7 @@ const ICON_NAME_MAP = {
   DROP_DOWN: "arrow_drop_down",
   DROP_UP: "arrow_drop_up",
   ARROW_UP: "arrow_upward",
-  ARROW_LEFT: "arrow_back_ios",
+  ARROW_LEFT: "arrow_back_ios_new",
   ARROW_RIGHT: "arrow_forward_ios",
   CLOSE: "close",
   CHECKED: "check_box",
@@ -36,6 +36,10 @@ const ICON_NAME_MAP = {
   TROPHY: "trophy",
   STAR: "star",
   FAVORITE: "favorite",
+  MENU: "menu",
+  MORE_VERT: "more_vert",
+  PLAY: "play_arrow",
+  DIRECTIONS_RUN: "directions_run",
 };
 
 interface IconProps {

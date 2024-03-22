@@ -1,6 +1,6 @@
 "use client";
 
-import User from "@/components/domain/user/User";
+import User from "@/app/_components/User";
 import { getCookie } from "cookies-next";
 
 export default function Webtoon() {

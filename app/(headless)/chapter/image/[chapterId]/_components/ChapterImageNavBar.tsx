@@ -1,10 +1,8 @@
 "use client";
 
+import Icon from "@/components/common/Icon/Icon";
 import Hamburger from "@/public/svg/hamburger.svg";
-import LeftArrow from "@/public/svg/leftArrow.svg";
 import Play from "@/public/svg/play.svg";
-import RightArrow from "@/public/svg/rightArrow.svg";
-import TightMan from "@/public/svg/tightman.svg";
 import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterPrevNextResponse } from "@/type/response";
 import Link from "next/link";
@@ -15,7 +13,6 @@ const ChapterImageNavBar = ({
   prevNextInfo: ChapterPrevNextResponse;
 }) => {
   const { isNavVisible } = useNavVisibleStore();
-  console.log("prevNextInfo : ", prevNextInfo);
 
   return (
     <div className={`${isNavVisible ? "block" : "hidden"}`}>
@@ -28,13 +25,13 @@ const ChapterImageNavBar = ({
           {prevNextInfo.titlePrev && (
             <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
               <Link href={`/chapter/image/${prevNextInfo.titlePrev}`} prefetch>
-                <LeftArrow />
+                <Icon name="ARROW_LEFT" color="white" />
               </Link>
             </button>
           )}
           <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
             <Link href={`/chapter/${prevNextInfo.toonId}`} prefetch>
-              <Hamburger />
+              <Icon name="MORE_VERT" color="white" />
             </Link>
           </button>
           <button className="relative h-12 overflow-hidden w-12 rounded-full bg-black light:bg-white border border-solid !border-opacity-10 border-white light:border-black relative !border-0">
@@ -47,17 +44,18 @@ const ChapterImageNavBar = ({
               }}
             ></div>
             <div className="absolute inset-1 w-42 h-42 bg-black rounded-full light:bg-white"></div>
-            <div className="w-12 h-12">
-              <TightMan className="w-4 h-4" />
+            <div className="relative w-12 h-9 ">
+              <Icon name="DIRECTIONS_RUN" color="white" />
+              {/* <TightMan className="w-4 h-4" /> */}
             </div>
           </button>
           <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-            <Play />
+            <Icon name="PLAY" color="white" isFilled={true} size="3xl" />
           </button>
           {prevNextInfo.titleNext && (
             <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
               <Link href={`/chapter/image/${prevNextInfo.titleNext}`} prefetch>
-                <RightArrow />
+                <Icon name="ARROW_RIGHT" color="white" />
               </Link>
             </button>
           )}

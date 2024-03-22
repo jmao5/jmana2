@@ -5,7 +5,6 @@ import useDropdown from "@/hooks/useDropdown";
 import { UserResponse } from "@/type/response";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 
 interface UserInfo {
   userInfo?: UserResponse["data"]["basicInfo"];

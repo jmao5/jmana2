@@ -1,4 +1,4 @@
-import ToonCard from "@/components/domain/toon/ToonList";
+import ToonCard from "@/app/_components/ToonList";
 import { getServerToken } from "@/utils/auth";
 
 export default function Home({
