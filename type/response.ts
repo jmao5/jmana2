@@ -786,3 +786,8 @@ export type ChapterPrevNextResponse = {
   titleNext: number;
   cateTitle: string;
 };
+
+export type UserToonMarkCheckResponse = {
+  actived: boolean;
+  activedCount: number;
+};

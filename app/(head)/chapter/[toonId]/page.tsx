@@ -1,4 +1,7 @@
-import { getSvChapterList } from "@/apis/client/getSvChapter";
+import {
+  getSvChapterList,
+  getToonMarkAuthUser,
+} from "@/apis/client/getSvChapter";
 import { getSvToonInfo } from "@/apis/client/getSvToon";
 import LoadingSpiner from "@/components/common/LoadingSpiner";
 import Image from "next/image";
@@ -13,6 +16,7 @@ export default async function ChapterPage({
 }) {
   const { data: toonInfo } = await getSvToonInfo(params.toonId);
   const { data: chapterList } = await getSvChapterList(params.toonId);
+  const { data: toonMarkInfo } = await getToonMarkAuthUser(params.toonId);
 
   return (
     <div className="w-full">
@@ -28,11 +32,13 @@ export default async function ChapterPage({
             />
           </div>
           <div className="w-3/4 ml-6 flex-grow overflow-hidden">
-            <div className="flex items-center">
-              <h1 className="text-3xl font-semibold mb-1">{toonInfo.title}</h1>
-              <LikeButton />
-            </div>
-            <p className="text-gray-600 text-sm mb-2">{toonInfo.genre}</p>
+            <h1 className="text-3xl font-semibold mb-1 truncate">
+              {toonInfo.title}
+            </h1>
+            <p className="text-gray-600 text-sm mb-2 flex items-center">
+              {toonInfo.genre}
+              <LikeButton toonMarkInfo={toonMarkInfo} />
+            </p>
             <p className="text-base leading-relaxed line-clamp-4">
               {toonInfo.toonSummary}
             </p>
