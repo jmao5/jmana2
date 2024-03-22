@@ -47,8 +47,8 @@ const ChapterImageNavBar = ({
               }}
             ></div>
             <div className="absolute inset-1 w-42 h-42 bg-black rounded-full light:bg-white"></div>
-            <div className="relative w-12 h-12 p-12">
-              <TightMan />
+            <div className="w-12 h-12">
+              <TightMan className="w-4 h-4" />
             </div>
           </button>
           <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
