@@ -2,9 +2,7 @@ import {
   getSvChapterImageList,
   getSvPrevNext,
 } from "@/apis/client/getSvChapterImage";
-import LoadingSpiner from "@/components/common/LoadingSpiner";
-import ChapterImage from "@/components/domain/chapterImage/ChapterImage";
-import { Suspense } from "react";
+import ChapterImage from "@/app/(headless)/chapter/image/[chapterId]/_components/ChapterImage";
 
 export default async function ChapterImagePage({
   params,

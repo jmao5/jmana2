@@ -3,8 +3,8 @@
 import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterImageResponse, ChapterPrevNextResponse } from "@/type/response";
 import { useEffect } from "react";
-import ChapterImageList from "./ChapterImageList";
 import ChapterImageNavBar from "./ChapterImageNavBar";
+import ChapterImageList from "./ChapterImageList";
 
 const ChapterImage = ({
   chapterImageList,

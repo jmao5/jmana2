@@ -1,11 +1,11 @@
 import { getUserSvInformation } from "@/apis/client/getSvUser";
-import SearchIcon from "@/components/common/SearchIcon";
-import UserDropDown from "@/components/common/UserDropDown";
 import { Button } from "@/components/ui/button";
 import { LinkLabels } from "@/constants/link";
 import { getServerToken } from "@/utils/auth";
 import Image from "next/image";
 import Link from "next/link";
+import SearchIcon from "./_components/SearchIcon";
+import UserDropDown from "./_components/UserDropDown";
 
 export default async function Navigation() {
   const token = getServerToken();

@@ -2,7 +2,6 @@ import classNames from "classnames";
 import "./index.scss";
 import { IconName } from "@/type/IconName";
 import { FontSize } from "@/type/FontSize";
-import { Color } from "@/type/Color";
 
 const ICON_NAME_MAP = {
   CREATE_NEW_PLAN: "add",
@@ -21,6 +20,9 @@ const ICON_NAME_MAP = {
   HELP: "help",
   DROP_DOWN: "arrow_drop_down",
   DROP_UP: "arrow_drop_up",
+  ARROW_UP: "arrow_upward",
+  ARROW_LEFT: "arrow_back_ios",
+  ARROW_RIGHT: "arrow_forward_ios",
   CLOSE: "close",
   CHECKED: "check_box",
   UN_CHECKED: "check_box_outline_blank",
@@ -34,13 +36,12 @@ const ICON_NAME_MAP = {
   TROPHY: "trophy",
   STAR: "star",
   FAVORITE: "favorite",
-  ARROW_UP: "arrow_upward",
 };
 
 interface IconProps {
   name: IconName;
   size?: FontSize;
-  color?: Color;
+  color?: string;
   isFilled?: boolean;
   classNameList?: string[];
 }

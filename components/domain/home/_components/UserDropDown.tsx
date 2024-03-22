@@ -1,24 +1,21 @@
 "use client";
 
 import { LinkLabels } from "@/constants/link";
+import useDropdown from "@/hooks/useDropdown";
 import { UserResponse } from "@/type/response";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface UserInfo {
   userInfo?: UserResponse["data"]["basicInfo"];
 }
 
 export default function UserDropDown({ userInfo }: UserInfo) {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const { isOpen, dropdownRef, toggleDropdown } = useDropdown();
 
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <Image
         id="avatarButton"
         data-dropdown-toggle="userDropdown"
@@ -33,7 +30,7 @@ export default function UserDropDown({ userInfo }: UserInfo) {
 
       <div
         className={`absolute right-0 mt-2 ${
-          isDropdownOpen ? "block" : "hidden"
+          isOpen ? "block" : "hidden"
         } bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}
       >
         <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
