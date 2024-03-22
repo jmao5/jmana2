@@ -10,7 +10,7 @@ export type IconName =
   | "PROFILE"
   | "WARNING"
   | "ERROR"
-  | "AJAJA"
+  | "LOCAL_FIRE_DEPARTMENT"
   | "REFRESH"
   | "HELP"
   | "DROP_DOWN"

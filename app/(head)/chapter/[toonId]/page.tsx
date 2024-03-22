@@ -16,7 +16,7 @@ export default async function ChapterPage({
   return (
     <div className="w-full">
       <Suspense fallback={<LoadingSpiner />}>
-        <div className="flex items-start justify-center bg-white p-6 mt-8 sm:mt-0">
+        <div className="flex items-start justify-center bg-white p-2 sm:p-6">
           <div className="w-1/4 flex-shrink-0">
             <Image
               src={toonInfo.imagePath}
@@ -35,7 +35,7 @@ export default async function ChapterPage({
           </div>
         </div>
       </Suspense>
-      <div className="px-6">
+      <div className="px-2 sm:px-6">
         <ul className="divide-y divide-gray-300">
           {/* Map over the chapters array and render each chapter */}
           <Suspense fallback={<LoadingSpiner />}>
@@ -48,7 +48,7 @@ export default async function ChapterPage({
                   <span className="flex-grow text-lg font-semibold text-black">
                     {chapter.cateTitle}
                   </span>
-                  <span className="text-gray-600 ml-4">
+                  <span className="text-red-500 ml-4">
                     {chapter.uploadDate.toString()}
                   </span>
                 </Link>

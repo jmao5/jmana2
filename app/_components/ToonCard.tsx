@@ -1,10 +1,12 @@
 "use client";
 
+import Icon from "@/components/common/Icon/Icon";
 import { BLUR_IMAGE_SRC } from "@/constants/blurImageSrc";
 import { ToonResponse } from "@/type/response";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 const ToonCard: React.FC<{ toonResponseList: ToonResponse[] }> = ({
   toonResponseList,
@@ -20,6 +22,11 @@ const ToonCard: React.FC<{ toonResponseList: ToonResponse[] }> = ({
 
 const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
   const [isImgError, setIsImgError] = useState<boolean>(false);
+
+  const today = dayjs().format("YYYY-MM-DD");
+  const updateDate = dayjs(item.updateDate).format("YYYY-MM-DD");
+  const dateDifference = dayjs(today).diff(updateDate, "day");
+  const isDifferenceGreaterThan10Days = dateDifference < 10;
 
   return (
     <li>
@@ -46,12 +53,27 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
           />
         </div>
         <div className="p-2 min-h-20">
-          <span className="block font-medium truncate">{item.title}</span>
+          <span className="text-md flex items-center">
+            {isDifferenceGreaterThan10Days && (
+              <Icon
+                name="LOCAL_FIRE_DEPARTMENT"
+                color="emerald-500"
+                size="xl"
+                isFilled={true}
+                classNameList={["relative", "right-1", "text-emerald-500"]}
+              />
+            )}
+            <span className="truncate relative right-1">{item.title}</span>
+          </span>
           <span className="block text-blue-600 text-sm truncate">
             {item.genre}
           </span>
-          <span className="block text-gray-400 text-sm truncate">
-            {item.updateDate ? item.updateDate.toString() : ""}
+          <span className="flex items-center">
+            <span className="text-sm truncate text-gray-400 flex-grow">
+              {item.updateDate ? item.updateDate.toString() : ""}
+            </span>
+            <Icon name="FAVORITE" color="rose-600" size="sm" />
+            <span className="text-sm text-rose-600">{item.activedCount}</span>
           </span>
         </div>
       </Link>

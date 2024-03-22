@@ -15,7 +15,7 @@ const ICON_NAME_MAP = {
   PROFILE: "person",
   ERROR: "error",
   WARNING: "warning",
-  AJAJA: "local_fire_department",
+  LOCAL_FIRE_DEPARTMENT: "local_fire_department",
   REFRESH: "refresh",
   HELP: "help",
   DROP_DOWN: "arrow_drop_down",

@@ -14,7 +14,7 @@ const ChapterImageList = ({
     <Image
       alt={chapterImage.id.toString()}
       src={isImgError ? chapterImage.toonImageUrl : chapterImage.toonImageUrl}
-      width={500}
+      width={700}
       height={2000}
       onError={() => setIsImgError(true)}
       // layout="fill"
