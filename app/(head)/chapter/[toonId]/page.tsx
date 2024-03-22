@@ -4,6 +4,7 @@ import LoadingSpiner from "@/components/common/LoadingSpiner";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import LikeButton from "../_components/LikeButton";
 
 export default async function ChapterPage({
   params,
@@ -22,12 +23,15 @@ export default async function ChapterPage({
               src={toonInfo.imagePath}
               alt={toonInfo.title}
               className="rounded-lg shadow-md h-44"
-              width={100}
+              width={200}
               height={100}
             />
           </div>
           <div className="w-3/4 ml-6 flex-grow overflow-hidden">
-            <h1 className="text-3xl font-semibold mb-2">{toonInfo.title}</h1>
+            <div className="flex items-center">
+              <h1 className="text-3xl font-semibold mb-1">{toonInfo.title}</h1>
+              <LikeButton />
+            </div>
             <p className="text-gray-600 text-sm mb-2">{toonInfo.genre}</p>
             <p className="text-base leading-relaxed line-clamp-4">
               {toonInfo.toonSummary}

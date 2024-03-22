@@ -16,6 +16,7 @@ const ChapterImageList = ({
       src={isImgError ? chapterImage.toonImageUrl : chapterImage.toonImageUrl}
       width={700}
       height={2000}
+      priority
       onError={() => setIsImgError(true)}
       // layout="fill"
       // blurDataURL={BLUR_IMAGE_SRC}

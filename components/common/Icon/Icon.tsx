@@ -16,6 +16,7 @@ const ICON_NAME_MAP = {
   ERROR: "error",
   WARNING: "warning",
   LOCAL_FIRE_DEPARTMENT: "local_fire_department",
+  WHATSHOT: "whatshot",
   REFRESH: "refresh",
   HELP: "help",
   DROP_DOWN: "arrow_drop_down",
@@ -39,6 +40,9 @@ const ICON_NAME_MAP = {
   MENU: "menu",
   MORE_VERT: "more_vert",
   PLAY: "play_arrow",
+  SHIFT: "shift",
+  ARROW_CIRCLE_UP: "arrow_circle_up",
+  SPRINT: "sprint",
   DIRECTIONS_RUN: "directions_run",
 };
 

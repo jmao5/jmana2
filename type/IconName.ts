@@ -11,6 +11,7 @@ export type IconName =
   | "WARNING"
   | "ERROR"
   | "LOCAL_FIRE_DEPARTMENT"
+  | "WHATSHOT"
   | "REFRESH"
   | "HELP"
   | "DROP_DOWN"
@@ -34,4 +35,7 @@ export type IconName =
   | "MENU"
   | "MORE_VERT"
   | "PLAY"
+  | "SHIFT"
+  | "ARROW_CIRCLE_UP"
+  | "SPRINT"
   | "DIRECTIONS_RUN";
