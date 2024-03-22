@@ -51,7 +51,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             {item.genre}
           </span>
           <span className="block text-gray-400 text-sm truncate">
-            {item.updateDate.toString()}
+            {item.updateDate ? item.updateDate.toString() : ""}
           </span>
         </div>
       </Link>
