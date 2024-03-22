@@ -14,8 +14,17 @@ const ChapterImageNavBar = ({
 }) => {
   const { isNavVisible } = useNavVisibleStore();
 
+  const handleButtonClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className={`${isNavVisible ? "block" : "hidden"}`}>
+    <div
+      className={`${isNavVisible ? "block" : "hidden"}`}
+      onClick={handleButtonClick}
+    >
       <div className="fixed top-0 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-90 w-full h-12 flex items-center justify-center text-white">
         {prevNextInfo.cateTitle}
       </div>
