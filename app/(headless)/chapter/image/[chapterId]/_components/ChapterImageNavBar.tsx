@@ -29,7 +29,7 @@ const ChapterImageNavBar = ({
         {prevNextInfo.cateTitle}
       </div>
 
-      <div className="fixed w-full bottom-16 flex justify-center z-navigationBar">
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full flex items-center justify-center">
         <div className="flex justify-between w-[312px]">
           {prevNextInfo.titlePrev && (
             <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
