@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
-  reactStrictMode: true,
+  reactStrictMode: false,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -31,6 +31,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "m.nownowcdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img1.newtoki21.org",
+      },
+      {
+        protocol: "https",
+        hostname: "img2.newtoki20.org",
       },
     ],
   },

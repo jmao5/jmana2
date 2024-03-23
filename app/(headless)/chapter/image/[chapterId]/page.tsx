@@ -17,6 +17,7 @@ export default async function ChapterImagePage({
     <ChapterImage
       chapterImageList={chapterImageList}
       prevNextInfo={prevNextInfo}
+      chapterId={chapterId}
     />
   );
 }

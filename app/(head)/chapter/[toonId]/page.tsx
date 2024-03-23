@@ -4,6 +4,7 @@ import LoadingSpiner from "@/components/common/LoadingSpiner";
 import Link from "next/link";
 import { Suspense } from "react";
 import ChapterToonInfo from "../_components/ChapterToonInfo";
+import Icon from "@/components/common/Icon/Icon";
 
 export default async function ChapterPage({
   params,
@@ -19,21 +20,29 @@ export default async function ChapterPage({
         <ChapterToonInfo toonInfo={toonInfo} toonId={params.toonId} />
       </Suspense>
       <div className="px-2 sm:px-6">
-        <ul className="divide-y divide-gray-300">
-          {/* Map over the chapters array and render each chapter */}
+        <ul>
           <Suspense fallback={<LoadingSpiner />}>
             {chapterList.map((chapter) => (
               <li key={chapter.id}>
                 <Link
                   href={`/chapter/image/${chapter.id}`}
-                  className="py-4 flex justify-between items-center"
+                  className={`flex items-center justify-between px-6 py-2 transition-colors hover:bg-gray-200 ${
+                    chapter.updatedAt && "bg-zinc-100"
+                  } rounded-lg border border-gray-300`}
                 >
-                  <span className="flex-grow text-lg font-semibold text-black">
-                    {chapter.cateTitle}
-                  </span>
-                  <span className="text-red-500 ml-4">
-                    {chapter.uploadDate.toString()}
-                  </span>
+                  <div className="flex-grow">
+                    <h2 className="text-lg font-semibold text-black">
+                      {chapter.cateTitle}
+                    </h2>
+                    <p className="text-stone-400 text-sm">
+                      {chapter.uploadDate.toString()}
+                    </p>
+                  </div>
+                  <Icon
+                    name="ARROW_RIGHT"
+                    size="lg"
+                    classNameList={["text-sky-500"]}
+                  />
                 </Link>
               </li>
             ))}

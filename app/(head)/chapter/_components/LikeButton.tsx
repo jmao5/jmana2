@@ -2,7 +2,7 @@
 
 import Icon from "@/components/common/Icon/Icon";
 import { useToonClMarkAuthUser } from "@/hooks/apis/use";
-import { useToggleIsToonMarkMutation } from "@/hooks/apis/useToggleIsRemindable";
+import { useToggleIsToonMarkMutation } from "@/hooks/apis/useToggleIsToonMarkMutation";
 
 const LikeButton = ({ toonId }: { toonId: number }) => {
   const { data } = useToonClMarkAuthUser(toonId);

@@ -5,14 +5,23 @@ import { ChapterImageResponse, ChapterPrevNextResponse } from "@/type/response";
 import { useEffect } from "react";
 import ChapterImageNavBar from "./ChapterImageNavBar";
 import ChapterImageList from "./ChapterImageList";
+import { useSaveChapterLogMutation } from "@/hooks/apis/useSaveChapterLogMutation";
 
 const ChapterImage = ({
   chapterImageList,
   prevNextInfo,
+  chapterId,
 }: {
   chapterImageList: ChapterImageResponse[];
   prevNextInfo: ChapterPrevNextResponse;
+  chapterId: number;
 }) => {
+  const { mutate: saveChapterLog } = useSaveChapterLogMutation(chapterId);
+
+  useEffect(() => {
+    saveChapterLog(chapterId);
+  }, []);
+
   const { isNavVisible, setIsNavVisible } = useNavVisibleStore();
 
   const toggleNav = () => {

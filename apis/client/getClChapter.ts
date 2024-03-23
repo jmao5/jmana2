@@ -10,3 +10,7 @@ export const getToonClMarkAuthUser = (toonId: number) => {
     `/api/user/${toonId}/toonMark`
   );
 };
+
+export const saveChapterLog = (chapterId: number) => {
+  return axiosInstanceClient.put(`/api/user/${chapterId}/chapterLog`);
+};

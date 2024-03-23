@@ -5,5 +5,6 @@ export const QUERY_KEY = {
   ALL_TOONS_MARK: "getAllToonsMark",
   PLAN: "getPlan",
   TOON_MARK: "getToonMark",
+  CHAPTER: "getChapter",
   USER_INFORMATION: "getUserInformation",
 };
