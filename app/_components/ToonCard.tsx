@@ -63,7 +63,13 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
                 classNameList={["relative", "right-1", "text-emerald-500"]}
               />
             )}
-            <span className="truncate relative right-1">{item.title}</span>
+            <span
+              className={`truncate relative ${
+                isDifferenceGreaterThan10Days && "right-1"
+              }`}
+            >
+              {item.title}
+            </span>
           </span>
           <span className="block text-blue-600 text-sm truncate">
             {item.genre}

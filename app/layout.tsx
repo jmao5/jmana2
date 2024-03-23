@@ -1,7 +1,7 @@
 import Toaster from "@/components/common/Toaster/Toaster";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import TanstackQueryProvider from "@/provider/TanstackQueryProvider";
-import { PoorStory } from "@/style/font";
+import { OmyuPretty } from "@/style/font/OmyuPretty";
 import classNames from "classnames";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -33,7 +33,7 @@ export default function RootLayout({
       </head>
       <body
         className={classNames(
-          PoorStory.className,
+          OmyuPretty.className,
           `flex flex-col items-center`
         )}
       >
