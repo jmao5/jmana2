@@ -1,9 +1,8 @@
-FROM node:21.6.2
+
+FROM node:21.6.2-slim as base
 
 # Next.js app lives here
 WORKDIR /app
-
-COPY package*.json
 
 # Set production environment
 ENV NODE_ENV="production"
@@ -14,7 +13,14 @@ COPY . .
 # Install dependencies
 RUN npm install
 
+# Build application
 RUN npm run build
+
+# Final stage for app image
+FROM base
+
+# Copy built application
+COPY --from=base /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
