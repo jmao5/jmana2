@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 코드 체크아웃
-        uses: actions/checkout@v2
-
       - name: Docker Build and Push
         concurrency:
           group: deploy-group # optional: ensure only one action runs at a time
