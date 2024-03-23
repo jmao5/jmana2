@@ -12,6 +12,15 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+ARG NEXT_PUBLIC_API_BASE_URL
+ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+
+ARG NEXT_PUBLIC_FE_URL
+ENV NEXT_PUBLIC_FE_URL=$NEXT_PUBLIC_FE_URL
+
+ARG NEXT_PUBLIC_KAKAO_OAUTH_URL
+ENV NEXT_PUBLIC_KAKAO_OAUTH_URL=$NEXT_PUBLIC_KAKAO_OAUTH_URL
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -27,13 +36,7 @@ RUN npm ci --include=dev
 COPY --link . .
 
 # Build application
-RUN --mount=type=secret,id=NEXT_PUBLIC_API_BASE_URL \
-    --mount=type=secret,id=NEXT_PUBLIC_FE_URL \
-    --mount=type=secret,id=NEXT_PUBLIC_KAKAO_OAUTH_URL \
-    NEXT_PUBLIC_API_BASE_URL="$(cat /run/secrets/NEXT_PUBLIC_API_BASE_URL)" \
-    NEXT_PUBLIC_FE_URL="$(cat /run/secrets/NEXT_PUBLIC_FE_URL)" \
-    NEXT_PUBLIC_KAKAO_OAUTH_URL="$(cat /run/secrets/NEXT_PUBLIC_KAKAO_OAUTH_URL)" \
-    npm run build
+RUN npm run build
 
 # Remove development dependencies
 RUN npm prune --omit=dev
