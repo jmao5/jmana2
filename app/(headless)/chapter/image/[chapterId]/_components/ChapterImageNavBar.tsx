@@ -1,8 +1,6 @@
 "use client";
 
 import Icon from "@/components/common/Icon/Icon";
-import Hamburger from "@/public/svg/hamburger.svg";
-import Play from "@/public/svg/play.svg";
 import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterPrevNextResponse } from "@/type/response";
 import Link from "next/link";

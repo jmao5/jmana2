@@ -1,13 +1,9 @@
-import {
-  getSvChapterList,
-  getToonMarkAuthUser,
-} from "@/apis/client/getSvChapter";
+import { getSvChapterList } from "@/apis/client/getSvChapter";
 import { getSvToonInfo } from "@/apis/client/getSvToon";
 import LoadingSpiner from "@/components/common/LoadingSpiner";
-import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import LikeButton from "../_components/LikeButton";
+import ChapterToonInfo from "../_components/ChapterToonInfo";
 
 export default async function ChapterPage({
   params,
@@ -16,35 +12,10 @@ export default async function ChapterPage({
 }) {
   const { data: toonInfo } = await getSvToonInfo(params.toonId);
   const { data: chapterList } = await getSvChapterList(params.toonId);
-  const { data: toonMarkInfo } = await getToonMarkAuthUser(params.toonId);
 
   return (
     <div className="w-full">
-      <Suspense fallback={<LoadingSpiner />}>
-        <div className="flex items-start justify-center bg-white p-2 sm:p-6">
-          <div className="w-1/4 flex-shrink-0">
-            <Image
-              src={toonInfo.imagePath}
-              alt={toonInfo.title}
-              className="rounded-lg shadow-md h-44"
-              width={200}
-              height={100}
-            />
-          </div>
-          <div className="w-3/4 ml-6 flex-grow overflow-hidden">
-            <h1 className="text-3xl font-semibold mb-1 truncate">
-              {toonInfo.title}
-            </h1>
-            <p className="text-gray-600 text-sm mb-2 flex items-center">
-              {toonInfo.genre}
-              <LikeButton toonMarkInfo={toonMarkInfo} />
-            </p>
-            <p className="text-base leading-relaxed line-clamp-4">
-              {toonInfo.toonSummary}
-            </p>
-          </div>
-        </div>
-      </Suspense>
+      <ChapterToonInfo toonInfo={toonInfo} toonId={params.toonId} />
       <div className="px-2 sm:px-6">
         <ul className="divide-y divide-gray-300">
           {/* Map over the chapters array and render each chapter */}
