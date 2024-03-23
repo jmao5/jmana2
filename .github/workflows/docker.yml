@@ -1,0 +1,41 @@
+name: Docker를 사용하여 Next.js 빌드 및 배포
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v2
+
+      - name: Docker meta
+        id: docker_meta
+        uses: crazy-max/ghaction-docker-meta@v1
+        with:
+          images: jsh5890/manaj-fe
+          tag-semver: |
+            {{version}}
+            {{major}}.{{minor}}
+
+      - name: Docker Buildx 설정
+        uses: docker/setup-buildx-action@v1
+
+      - name: Docker Hub에 로그인
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Docker 이미지 빌드 및 푸시
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./DockerfileHub
+          push: true
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
