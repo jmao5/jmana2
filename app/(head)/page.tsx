@@ -1,4 +1,4 @@
-import ToonCard from "@/app/_components/ToonList";
+import ToonList from "@/app/_components/ToonList";
 import { getServerToken } from "@/utils/auth";
 
 export default function Home({
@@ -8,10 +8,5 @@ export default function Home({
 }) {
   const token = getServerToken();
 
-  // const params = {
-  //   size: 100,
-  // };
-  // const { data } = await getToonSeverList(params);
-
-  return <ToonCard token={token} search={search} />;
+  return <ToonList token={token} search={search} />;
 }

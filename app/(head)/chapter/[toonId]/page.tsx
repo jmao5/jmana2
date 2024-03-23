@@ -15,7 +15,9 @@ export default async function ChapterPage({
 
   return (
     <div className="w-full">
-      <ChapterToonInfo toonInfo={toonInfo} toonId={params.toonId} />
+      <Suspense fallback={<LoadingSpiner />}>
+        <ChapterToonInfo toonInfo={toonInfo} toonId={params.toonId} />
+      </Suspense>
       <div className="px-2 sm:px-6">
         <ul className="divide-y divide-gray-300">
           {/* Map over the chapters array and render each chapter */}

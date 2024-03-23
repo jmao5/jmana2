@@ -8,20 +8,27 @@ import ToonCard from "./ToonCard";
 
 interface ToonCardProps {
   token?: string;
-  search: string;
+  search?: string;
+  toonMark?: boolean;
+  menu?: string;
 }
 
-const ToonList: React.FC<ToonCardProps> = ({ token, search }) => {
+const ToonList: React.FC<ToonCardProps> = ({
+  token,
+  search,
+  toonMark,
+  menu,
+}) => {
   // const { handleScroll, scrollableRef } = useScroll();
   const { loadedToons, fetchNextPage, hasNextPage, isLoading } = token
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
       useToonListQuery({
         page: 1,
         size: null,
-        search: search,
+        search: search ? search : "",
         days: null,
-        toonMark: false,
-        menu: search ? null : "TOON",
+        toonMark: toonMark ? toonMark : false,
+        menu: menu ? menu : search === "" ? "" : "TOON",
       })
     : {
         loadedToons: [],
@@ -30,7 +37,7 @@ const ToonList: React.FC<ToonCardProps> = ({ token, search }) => {
         isLoading: false,
       };
 
-  const flatLoadedToons = useMemo(() => loadedToons.flat(), [loadedToons]);
+  // const flatLoadedToons = useMemo(() => loadedToons.flat(), [loadedToons]);
 
   return (
     <>
@@ -52,7 +59,7 @@ const ToonList: React.FC<ToonCardProps> = ({ token, search }) => {
             // }
           >
             <ul className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 mx-2 sm:mx-4 mt-2 sm:mt-4">
-              {flatLoadedToons?.map(({ data }, index) => (
+              {loadedToons?.map(({ data }, index) => (
                 <ToonCard key={index} toonResponseList={data} />
               ))}
             </ul>
