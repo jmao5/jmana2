@@ -3,7 +3,7 @@ name: Docker를 사용하여 Next.js 빌드 및 배포
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
