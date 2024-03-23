@@ -37,7 +37,7 @@ const ToonList: React.FC<ToonCardProps> = ({
         isLoading: false,
       };
 
-  // const flatLoadedToons = useMemo(() => loadedToons.flat(), [loadedToons]);
+  const flatLoadedToons = useMemo(() => loadedToons.flat(), [loadedToons]);
 
   return (
     <>
@@ -59,7 +59,7 @@ const ToonList: React.FC<ToonCardProps> = ({
             // }
           >
             <ul className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 mx-2 sm:mx-4 mt-2 sm:mt-4">
-              {loadedToons?.map(({ data }, index) => (
+              {flatLoadedToons?.map(({ data }, index) => (
                 <ToonCard key={index} toonResponseList={data} />
               ))}
             </ul>

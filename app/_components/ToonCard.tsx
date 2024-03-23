@@ -52,7 +52,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             placeholder="blur"
           />
         </div>
-        <div className="p-2 min-h-20">
+        <div className="p-2 min-h-[84px]">
           <span className="text-md flex items-center">
             {isDifferenceGreaterThan10Days && (
               <Icon
