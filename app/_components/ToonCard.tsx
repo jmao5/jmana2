@@ -32,7 +32,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
     <li>
       <Link
         href={`/chapter/${item.id}`}
-        className="link block bg-white rounded-lg shadow-md overflow-hidden"
+        className="link block bg-white rounded-lg shadow-md overflow-hidden sm:w-32"
         // prefetch={false}
       >
         <div className="w-full h-32 relative">

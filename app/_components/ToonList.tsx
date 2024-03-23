@@ -28,7 +28,7 @@ const ToonList: React.FC<ToonCardProps> = ({
         search: search ? search : "",
         days: null,
         toonMark: toonMark ? toonMark : false,
-        menu: menu ? menu : search === "" ? "" : "TOON",
+        menu: menu ? menu : search === "" ? "TOON" : "",
       })
     : {
         loadedToons: [],
