@@ -12,14 +12,6 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
-# Set environment variables
-ARG NEXT_PUBLIC_FE_URL
-ARG NEXT_PUBLIC_KAKAO_OAUTH_URL
-ARG NEXT_PUBLIC_API_BASE_URL
-ENV NEXT_PUBLIC_FE_URL=$NEXT_PUBLIC_FE_URL
-ENV NEXT_PUBLIC_KAKAO_OAUTH_URL=$NEXT_PUBLIC_KAKAO_OAUTH_URL
-ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
-
 # Copy application code
 COPY . .
 
@@ -34,7 +26,4 @@ COPY --from=base /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD echo "NEXT_PUBLIC_FE_URL: $NEXT_PUBLIC_FE_URL" && \
-    echo "NEXT_PUBLIC_KAKAO_OAUTH_URL: $NEXT_PUBLIC_KAKAO_OAUTH_URL" && \
-    echo "NEXT_PUBLIC_API_BASE_URL: $NEXT_PUBLIC_API_BASE_URL" && \
-    npm run start
+CMD [ "npm", "run", "start" ]
