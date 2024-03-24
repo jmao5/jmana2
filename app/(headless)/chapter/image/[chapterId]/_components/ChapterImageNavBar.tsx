@@ -16,6 +16,7 @@ const ChapterImageNavBar = ({
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     event.stopPropagation();
+    event.preventDefault();
   };
 
   return (

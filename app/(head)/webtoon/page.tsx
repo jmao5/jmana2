@@ -1,10 +1,8 @@
-"use client";
-
-import User from "@/app/_components/User";
-import { getCookie } from "cookies-next";
+import ToonList from "@/app/_components/ToonList";
+import { getServerToken } from "@/utils/auth";
 
 export default function Webtoon() {
-  const token = getCookie("token");
+  const token = getServerToken();
 
-  return <>{token ? <User /> : ""}</>;
+  return <ToonList token={token} menu={"TOON"} />;
 }

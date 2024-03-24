@@ -1,6 +1,6 @@
 "use client";
 
-import { ToonResponse, UserToonMarkCheckResponse } from "@/type/response";
+import { ToonResponse } from "@/type/response";
 import Image from "next/image";
 import LikeButton from "./LikeButton";
 
