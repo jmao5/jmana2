@@ -2,7 +2,7 @@
 
 import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterImageResponse, ChapterPrevNextResponse } from "@/type/response";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ChapterImageNavBar from "./ChapterImageNavBar";
 import ChapterImageList from "./ChapterImageList";
 import { useSaveChapterLogMutation } from "@/hooks/apis/useSaveChapterLogMutation";
@@ -23,9 +23,12 @@ const ChapterImage = ({
   }, []);
 
   const { isNavVisible, setIsNavVisible } = useNavVisibleStore();
+  const [scrollInterval, setScrollInterval] = useState<number | null>(null);
 
-  const toggleNav = () => {
+  const toggleNav = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setIsNavVisible(!isNavVisible);
+    handleScrollInterval();
+    event.stopPropagation(); // 클릭 이벤트 전파(stop propagation)
   };
 
   useEffect(() => {
@@ -37,9 +40,37 @@ const ChapterImage = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setIsNavVisible]);
 
+  // 자동스크롤 시작
+  const scrollToBottom = () => {
+    if (!scrollInterval) {
+      setScrollInterval(window.setInterval(() => window.scrollBy(0, 2), 1));
+    } else {
+      clearInterval(scrollInterval);
+      setScrollInterval(null);
+    }
+  };
+
+  const handleScrollInterval = useCallback(() => {
+    if (scrollInterval) {
+      clearInterval(scrollInterval);
+      setScrollInterval(null);
+    }
+  }, [scrollInterval]);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", handleScrollInterval);
+    return () => {
+      window.removeEventListener("beforeunload", handleScrollInterval);
+      handleScrollInterval();
+    };
+  }, [handleScrollInterval]);
+
   return (
     <div className="w-full" onClick={toggleNav}>
-      <ChapterImageNavBar prevNextInfo={prevNextInfo} />
+      <ChapterImageNavBar
+        prevNextInfo={prevNextInfo}
+        scrollToBottom={scrollToBottom}
+      />
       {chapterImageList.map((chapterImage, index) => (
         <ChapterImageList chapterImage={chapterImage} key={index} />
       ))}

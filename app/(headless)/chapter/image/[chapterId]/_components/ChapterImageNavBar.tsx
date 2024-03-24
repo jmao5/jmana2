@@ -4,11 +4,14 @@ import Icon from "@/components/common/Icon/Icon";
 import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterPrevNextResponse } from "@/type/response";
 import Link from "next/link";
+import { MouseEventHandler } from "react";
 
 const ChapterImageNavBar = ({
   prevNextInfo,
+  scrollToBottom,
 }: {
   prevNextInfo: ChapterPrevNextResponse;
+  scrollToBottom: MouseEventHandler<HTMLButtonElement>;
 }) => {
   const { isNavVisible } = useNavVisibleStore();
 
@@ -57,7 +60,10 @@ const ChapterImageNavBar = ({
               {/* <TightMan className="w-4 h-4" /> */}
             </div>
           </button>
-          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
+          <button
+            className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+            onClick={scrollToBottom}
+          >
             <Icon name="PLAY" color="white" isFilled={true} size="3xl" />
           </button>
           {prevNextInfo.titleNext && (
