@@ -1,7 +1,9 @@
 "use client";
 
 import Icon from "@/components/common/Icon/Icon";
+import { Toast } from "@/components/common/Toaster/customToast";
 import useNavVisibleStore from "@/stores/isNavVisible";
+import useRunStore from "@/stores/isRun";
 import { ChapterPrevNextResponse } from "@/type/response";
 import Link from "next/link";
 import { MouseEventHandler } from "react";
@@ -14,12 +16,20 @@ const ChapterImageNavBar = ({
   scrollToBottom: MouseEventHandler<HTMLButtonElement>;
 }) => {
   const { isNavVisible } = useNavVisibleStore();
+  const { isRun, setIsRun } = useRunStore();
 
   const handleButtonClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     event.stopPropagation();
     event.preventDefault();
+  };
+
+  const handleRunClick = () => {
+    setIsRun(!isRun);
+    if (!isRun) {
+      Toast.success("정주행 시작합니다.");
+    }
   };
 
   return (
@@ -45,7 +55,10 @@ const ChapterImageNavBar = ({
               <Icon name="MORE_VERT" color="white" />
             </Link>
           </button>
-          <button className="relative h-12 overflow-hidden w-12 rounded-full bg-black light:bg-white border border-solid !border-opacity-10 border-white light:border-black relative !border-0">
+          <button
+            className="relative h-12 w-12 rounded-full border-opacity-100"
+            onClick={handleRunClick}
+          >
             <div
               className="absolute inset-0 w-full h-full rounded-full animate-spin"
               style={{
@@ -54,10 +67,17 @@ const ChapterImageNavBar = ({
                   "linear-gradient(45deg, rgb(4, 202, 252) 0%, rgb(19, 187, 252) 25%, rgb(76, 126, 252) 50%, rgb(127, 72, 252) 75%, rgb(148, 50, 252) 100%)",
               }}
             ></div>
-            <div className="absolute inset-1 w-42 h-42 bg-black rounded-full light:bg-white"></div>
-            <div className="relative w-12 h-9 ">
-              <Icon name="DIRECTIONS_RUN" color="white" />
-              {/* <TightMan className="w-4 h-4" /> */}
+            <div
+              className={`absolute ${
+                isRun ? "inset-10" : "inset-1"
+              }  bg-black rounded-full`}
+            ></div>
+            <div className="relative w-12">
+              {isRun ? (
+                <Icon name="SPRINT" color="black" />
+              ) : (
+                <Icon name="DIRECTIONS_RUN" color="white" />
+              )}
             </div>
           </button>
           <button
