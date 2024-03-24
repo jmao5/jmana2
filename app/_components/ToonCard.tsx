@@ -42,11 +42,12 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             // src={item.imagePath}
             src={!isImgError ? item.imagePath : "/images/blur.jpg"}
             // priority={true}
-            className="w-full h-full"
-            width={200}
-            height={300}
-            // layout="fill"
+            // className="w-full h-full"
+            // width={200}
+            // height={300}
+            layout="fill"
             // quality={30}
+            unoptimized={true}
             onError={() => setIsImgError(true)}
             blurDataURL={BLUR_IMAGE_SRC}
             placeholder="blur"
