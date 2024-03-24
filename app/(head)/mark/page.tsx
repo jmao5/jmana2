@@ -15,5 +15,5 @@ export default function Mark() {
   // if (isError || !response) return <ErrorPage />;
   // 유저정보 : {response?.data.basicInfo.nickname}
 
-  return <ToonList token={token} toonMark={true} search={""} />;
+  return <ToonList token={token} toonMark={true} />;
 }
