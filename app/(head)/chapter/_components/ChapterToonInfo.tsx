@@ -19,6 +19,7 @@ export default function ChapterToonInfo({ toonInfo, toonId }: ChapterToonInfo) {
           className="rounded-lg shadow-md h-44"
           width={200}
           height={100}
+          unoptimized={true}
         />
       </div>
       <div className="w-3/4 ml-6 flex-grow overflow-hidden">
