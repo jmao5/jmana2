@@ -1,12 +1,8 @@
-import ToonList from "@/app/_components/ToonList";
 import { getServerToken } from "@/utils/auth";
+import ToonsByMenuSlider from "../_components/ToonsByMenuSlider";
 
-export default function Home({
-  searchParams: { search },
-}: {
-  searchParams: { search: string };
-}) {
+export default function Home() {
   const token = getServerToken();
 
-  return <ToonList token={token} search={search} />;
+  return <ToonsByMenuSlider token={token} />;
 }

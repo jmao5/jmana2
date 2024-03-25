@@ -6,7 +6,7 @@ export default function SearchIcon() {
   const [search, setSearch] = useState("");
 
   const searchDo = () => {
-    window.location.replace(`/?search=${search}`);
+    window.location.replace(`/search?search=${search}`);
     setSearch("");
   };
 
