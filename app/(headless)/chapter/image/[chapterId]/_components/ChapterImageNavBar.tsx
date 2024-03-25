@@ -21,8 +21,8 @@ const ChapterImageNavBar = ({
   const handleButtonClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    event.stopPropagation();
     event.preventDefault();
+    event.stopPropagation();
   };
 
   const handleRunClick = () => {
@@ -44,17 +44,19 @@ const ChapterImageNavBar = ({
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full flex items-center justify-center">
         <div className="flex justify-between w-[312px]">
           {prevNextInfo.titlePrev && (
-            <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-              <Link href={`/chapter/image/${prevNextInfo.titlePrev}`} prefetch>
-                <Icon name="ARROW_LEFT" color="white" />
-              </Link>
-            </button>
-          )}
-          <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-            <Link href={`/chapter/${prevNextInfo.toonId}`} prefetch>
-              <Icon name="MORE_VERT" color="white" />
+            <Link
+              href={`/chapter/image/${prevNextInfo.titlePrev}`}
+              className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+            >
+              <Icon name="ARROW_LEFT" color="white" />
             </Link>
-          </button>
+          )}
+          <Link
+            href={`/chapter/${prevNextInfo.toonId}`}
+            className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+          >
+            <Icon name="MORE_VERT" color="white" />
+          </Link>
           <button
             className="relative h-12 w-12 rounded-full border-opacity-100"
             onClick={handleRunClick}
@@ -87,11 +89,12 @@ const ChapterImageNavBar = ({
             <Icon name="PLAY" color="white" isFilled={true} size="3xl" />
           </button>
           {prevNextInfo.titleNext && (
-            <button className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center">
-              <Link href={`/chapter/image/${prevNextInfo.titleNext}`} prefetch>
-                <Icon name="ARROW_RIGHT" color="white" />
-              </Link>
-            </button>
+            <Link
+              href={`/chapter/image/${prevNextInfo.titleNext}`}
+              className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+            >
+              <Icon name="ARROW_RIGHT" color="white" />
+            </Link>
           )}
         </div>
       </div>
