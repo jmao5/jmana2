@@ -26,7 +26,7 @@ export default async function Navigation() {
                 alt="로고"
               />
             </a>
-            <div className="pl-4 space-x-1 hidden sm:flex">
+            {/* <div className="pl-4 space-x-1 hidden sm:flex">
               {LinkLabels.map((button, index) => (
                 <Link key={index} href={button.url ?? "#"}>
                   <button className="text-black hover:bg-slate-100 border-none py-1 px-2 rounded-sm">
@@ -34,7 +34,7 @@ export default async function Navigation() {
                   </button>
                 </Link>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center">
             {/* <div className="flex items-center mt-2 md:mt-0 pr-3">
@@ -59,7 +59,7 @@ export default async function Navigation() {
           </div>
         </nav>
       </header>
-      <header className="sm:hidden border-b border-background-darken flex h-12 w-full items-center justify-between space-x-4 bg-background pl-3 fixed max-w-screen-sm z-10 top-14">
+      {/* <header className="sm:hidden border-b border-background-darken flex h-12 w-full items-center justify-between space-x-4 bg-background pl-3 fixed max-w-screen-sm z-10 top-14">
         <nav className="sm:hidden flex flex-row items-center justify-center fixed z-10">
           {LinkLabels.map((button, index) => (
             <Link key={index} href={button.url ?? "#"}>
@@ -69,7 +69,7 @@ export default async function Navigation() {
             </Link>
           ))}
         </nav>
-      </header>
+      </header> */}
     </>
   );
 }

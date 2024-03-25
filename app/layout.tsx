@@ -44,7 +44,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TanstackQueryProvider>
-            <main className="bg-background flex min-h-screen w-full max-w-screen-sm flex-col items-center pt-28 sm:pt-16 shadow">
+            <main className="bg-background flex min-h-screen w-full max-w-screen-sm flex-col items-center pt-16 shadow">
               {children}
             </main>
             <Toaster />

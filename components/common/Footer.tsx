@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BiCalendarCheck, BiChat, BiHome, BiMap, BiUser } from "react-icons/bi";
+import { BiHome, BiUser } from "react-icons/bi";
+import { PiBookOpenText } from "react-icons/pi";
+import { SiRenpy, SiWebtoon } from "react-icons/si";
 
 import IconGroup from "./IconGroup";
 
@@ -17,15 +19,19 @@ const Footer = () => {
   return (
     <nav className={`${defaultStyle}`}>
       <Link
-        href="/chatting"
-        className={`${pathname === "/chatting" && `${active}`} relative`}>
-        <IconGroup title="채팅">
-          <BiChat />
+        href="/webtoon"
+        className={`${pathname === "/webtoon" && `${active}`} relative`}
+      >
+        <IconGroup title="웹툰">
+          <SiWebtoon />
         </IconGroup>
       </Link>
-      <Link href="/map" className={`${pathname === "/map" && `${active}`}`}>
-        <IconGroup title="지도">
-          <BiMap />
+      <Link
+        href="/manhua"
+        className={`${pathname === "/manhua" && `${active}`}`}
+      >
+        <IconGroup title="만화">
+          <SiRenpy />
         </IconGroup>
       </Link>
       <Link href="/" className={`${pathname === "/" && `${active}`}`}>
@@ -33,20 +39,15 @@ const Footer = () => {
           <BiHome />
         </IconGroup>
       </Link>
-      <Link
-        href="/mission/list/ongoing"
-        className={`${
-          (pathname === "/mission/list/ongoing" ||
-            pathname === "/mission/list/suggested") &&
-          `${active}`
-        }`}>
-        <IconGroup title="미션">
-          <BiCalendarCheck />
+      <Link href="/novel" className={`${pathname === "/novel" && `${active}`}`}>
+        <IconGroup title="소설">
+          <PiBookOpenText />
         </IconGroup>
       </Link>
       <Link
         href="/profile"
-        className={`${pathname === "profile" && `${active}`}`}>
+        className={`${pathname === "profile" && `${active}`}`}
+      >
         <IconGroup title="프로필">
           <BiUser />
         </IconGroup>
