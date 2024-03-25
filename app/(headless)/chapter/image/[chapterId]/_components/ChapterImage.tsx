@@ -26,7 +26,7 @@ const ChapterImage = ({
 
   const { isNavVisible, setIsNavVisible } = useNavVisibleStore();
   const { handleScrollInterval, scrollToBottom } = useScrollInterval();
-  useScrollDoubleChk(prevNextInfo);
+  const { isBottom } = useScrollDoubleChk(prevNextInfo);
 
   const toggleNav = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setIsNavVisible(!isNavVisible);
