@@ -229,12 +229,7 @@ export type UserResponse = {
       gender: string;
       birth: string;
       introduce: string;
-    };
-    image: {
-      id: number | null;
-      originalName: string | null;
-      uniqueName: string | null;
-      path: string | null;
+      userImage: string;
     };
     favoriteWorkingDay: {
       favoriteDate: DateType[] | null;

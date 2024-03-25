@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { BiHome, BiUser } from "react-icons/bi";
 import { PiBookOpenText } from "react-icons/pi";
 import { SiRenpy, SiWebtoon } from "react-icons/si";
+import { AiOutlineStar } from "react-icons/ai";
 
 import IconGroup from "./IconGroup";
 
@@ -39,9 +40,9 @@ const Footer = () => {
           <BiHome />
         </IconGroup>
       </Link>
-      <Link href="/novel" className={`${pathname === "/novel" && `${active}`}`}>
-        <IconGroup title="소설">
-          <PiBookOpenText />
+      <Link href="/mark" className={`${pathname === "/mark" && `${active}`}`}>
+        <IconGroup title="즐겨찾기">
+          <AiOutlineStar />
         </IconGroup>
       </Link>
       <Link

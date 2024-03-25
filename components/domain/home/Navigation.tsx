@@ -1,6 +1,5 @@
 import { getUserSvInformation } from "@/apis/client/getSvUser";
 import { Button } from "@/components/ui/button";
-import { LinkLabels } from "@/constants/link";
 import { getServerToken } from "@/utils/auth";
 import Image from "next/image";
 import Link from "next/link";
