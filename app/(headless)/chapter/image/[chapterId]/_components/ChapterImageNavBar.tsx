@@ -46,6 +46,7 @@ const ChapterImageNavBar = ({
             <Link
               href={`/chapter/image/${prevNextInfo.titlePrev}`}
               className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+              scroll={false}
             >
               <Icon name="ARROW_LEFT" color="white" />
             </Link>
@@ -53,6 +54,7 @@ const ChapterImageNavBar = ({
           <Link
             href={`/chapter/${prevNextInfo.toonId}`}
             className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+            scroll={false}
           >
             <Icon name="MORE_VERT" color="white" />
           </Link>
@@ -91,6 +93,7 @@ const ChapterImageNavBar = ({
             <Link
               href={`/chapter/image/${prevNextInfo.titleNext}`}
               className="relative h-12 w-12 overflow-hidden rounded-full bg-black border border-solid border-opacity-10 border-white flex items-center justify-center"
+              scroll={false}
             >
               <Icon name="ARROW_RIGHT" color="white" />
             </Link>
