@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BiHome, BiUser } from "react-icons/bi";
-import { PiBookOpenText } from "react-icons/pi";
-import { SiRenpy, SiWebtoon } from "react-icons/si";
 import { AiOutlineStar } from "react-icons/ai";
+import { BiHome, BiUser } from "react-icons/bi";
+import { SiRenpy, SiWebtoon } from "react-icons/si";
 
 import IconGroup from "./IconGroup";
 
