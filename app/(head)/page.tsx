@@ -12,9 +12,19 @@ export default async function Home() {
       <div className="flex w-full p-2 justify-between items-center">
         <div className="text-start flex items-center">
           <FaFire className="text-lg" color="red" />
-          <span className="">웹툰</span>
+          <span className="pl-1">즐겨찾기</span>
         </div>
-        <Link href="/webton" className="text-end">
+        <Link href="/mark" className="text-end">
+          더보기
+        </Link>
+      </div>
+      <ToonsByMenuSlider toonMark={true} />
+      <div className="flex w-full p-2 justify-between items-center">
+        <div className="text-start flex items-center">
+          <FaFire className="text-lg" color="red" />
+          <span className="pl-1">웹툰</span>
+        </div>
+        <Link href="/webtoon" className="text-end">
           더보기
         </Link>
       </div>
@@ -22,7 +32,7 @@ export default async function Home() {
       <div className="flex w-full p-2 justify-between items-center">
         <div className="text-start flex items-center">
           <FaFire className="text-lg" color="red" />
-          <span className="">만화</span>
+          <span className="pl-1">만화</span>
         </div>
         <Link href="/manhua" className="text-end">
           더보기
