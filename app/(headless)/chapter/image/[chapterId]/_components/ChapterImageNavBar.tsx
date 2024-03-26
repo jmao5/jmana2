@@ -22,7 +22,6 @@ const ChapterImageNavBar = ({
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     event.preventDefault();
-    event.stopPropagation();
   };
 
   const handleRunClick = () => {

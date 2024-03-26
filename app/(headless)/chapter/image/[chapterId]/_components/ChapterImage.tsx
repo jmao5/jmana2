@@ -29,9 +29,9 @@ const ChapterImage = ({
   const { isBottom } = useScrollDoubleChk(prevNextInfo);
 
   const toggleNav = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.stopPropagation();
     setIsNavVisible(!isNavVisible);
     handleScrollInterval();
-    event.stopPropagation(); // 클릭 이벤트 전파(stop propagation)
   };
 
   useEffect(() => {
