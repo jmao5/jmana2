@@ -1,46 +1,35 @@
-import { getServerToken } from "@/utils/auth";
-import ToonsByMenuSlider from "../_components/ToonsByMenuSlider";
-import LoginPage from "../(auth)/login/page";
 import Link from "next/link";
 import { FaFire } from "react-icons/fa6";
+import ToonsByMenuSlider from "../_components/ToonsByMenuSlider";
 
-export default async function Home() {
-  const token = getServerToken();
+interface SectionInterface {
+  title: string;
+  href: string;
+  menu?: string;
+  toonMark?: boolean;
+}
 
-  return token ? (
+const Section = ({ title, href, menu, toonMark }: SectionInterface) => {
+  return (
+    <div className="flex w-full p-2 justify-between items-center">
+      <div className="text-start flex items-center">
+        <FaFire className="text-lg" color="red" />
+        <span className="pl-1">{title}</span>
+      </div>
+      <Link href={href} className="text-end">
+        더보기
+      </Link>
+      <ToonsByMenuSlider menu={menu} toonMark={toonMark} />
+    </div>
+  );
+};
+
+export default function Home() {
+  return (
     <>
-      <div className="flex w-full p-2 justify-between items-center">
-        <div className="text-start flex items-center">
-          <FaFire className="text-lg" color="red" />
-          <span className="pl-1">즐겨찾기</span>
-        </div>
-        <Link href="/mark" className="text-end">
-          더보기
-        </Link>
-      </div>
-      <ToonsByMenuSlider toonMark={true} />
-      <div className="flex w-full p-2 justify-between items-center">
-        <div className="text-start flex items-center">
-          <FaFire className="text-lg" color="red" />
-          <span className="pl-1">웹툰</span>
-        </div>
-        <Link href="/webtoon" className="text-end">
-          더보기
-        </Link>
-      </div>
-      <ToonsByMenuSlider menu="TOON" />
-      <div className="flex w-full p-2 justify-between items-center">
-        <div className="text-start flex items-center">
-          <FaFire className="text-lg" color="red" />
-          <span className="pl-1">만화</span>
-        </div>
-        <Link href="/manhua" className="text-end">
-          더보기
-        </Link>
-      </div>
-      <ToonsByMenuSlider menu="MANHUA" />
+      <Section title="즐겨찾기" href="/mark" toonMark={true} />
+      <Section title="웹툰" href="/webtoon" menu="TOON" />
+      <Section title="만화" href="/manhua" menu="MANHUA" />
     </>
-  ) : (
-    <LoginPage />
   );
 }
