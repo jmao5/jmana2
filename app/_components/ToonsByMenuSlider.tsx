@@ -1,29 +1,19 @@
 import { getSvToonList } from "@/apis/client/getSvToon";
-import Flex from "@/components/common/Flex";
+import SwiperSlider from "./SwiperSlider";
 
 interface ToonsByMenuSliderInterface {
-  token?: string;
+  menu: string;
 }
 
 export default async function ToonsByMenuSlider({
-  token,
+  menu,
 }: ToonsByMenuSliderInterface) {
   const params = {
     page: 1,
     size: 10,
-    menu: "TOON",
+    menu: menu,
   };
   const { data } = await getSvToonList(params);
-  console.log("data", data);
 
-  return token ? (
-    <Flex direction="column" gap={10}>
-      메인페이지 테스트
-    </Flex>
-  ) : (
-    <Flex direction="column" gap={10}>
-      메인페이지 테스트
-      {/* <ToonCard toonResponseList={data} /> */}
-    </Flex>
-  );
+  return <SwiperSlider toonResponseList={data} />;
 }
