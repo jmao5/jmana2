@@ -11,16 +11,18 @@ interface SectionInterface {
 
 const Section = ({ title, href, menu, toonMark }: SectionInterface) => {
   return (
-    <div className="flex w-full p-2 justify-between items-center">
-      <div className="text-start flex items-center">
-        <FaFire className="text-lg" color="red" />
-        <span className="pl-1">{title}</span>
+    <>
+      <div className="flex w-full p-2 justify-between items-center">
+        <div className="text-start flex items-center">
+          <FaFire className="text-lg" color="red" />
+          <span className="pl-1">{title}</span>
+        </div>
+        <Link href={href} className="text-end">
+          더보기
+        </Link>
       </div>
-      <Link href={href} className="text-end">
-        더보기
-      </Link>
       <ToonsByMenuSlider menu={menu} toonMark={toonMark} />
-    </div>
+    </>
   );
 };
 
