@@ -17,20 +17,27 @@ export default function SwiperSlider({
   toonResponseList: ToonResponse[];
 }) {
   return (
-    <Swiper
-      slidesPerView={3}
-      spaceBetween={10}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination]}
-      className="relative w-full pb-8"
-    >
-      {toonResponseList.map((item, innerIndex) => (
-        <SwiperSlide key={innerIndex}>
-          <ToonCardInner item={item} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="w-full px-2 border border-solid border-gray-300">
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={10}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        breakpoints={{
+          640: {
+            slidesPerView: 4,
+          },
+        }}
+        className="pb-10"
+      >
+        {toonResponseList.map((item, innerIndex) => (
+          <SwiperSlide key={innerIndex}>
+            <ToonCardInner item={item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
