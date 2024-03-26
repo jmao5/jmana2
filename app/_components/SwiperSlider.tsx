@@ -17,12 +17,13 @@ export default function SwiperSlider({
   toonResponseList: ToonResponse[];
 }) {
   return (
-    <div className="w-full px-2 pt-2 border border-solid border-gray-300">
+    <div className="w-full p-2 border border-solid border-gray-300 rounded-md">
       <Swiper
         slidesPerView={3}
         spaceBetween={10}
         pagination={{
           clickable: true,
+          type: "progressbar",
         }}
         modules={[Pagination]}
         breakpoints={{
@@ -30,7 +31,7 @@ export default function SwiperSlider({
             slidesPerView: 4,
           },
         }}
-        className="pb-8"
+        className="rounded-md"
       >
         {toonResponseList.map((item, innerIndex) => (
           <SwiperSlide key={innerIndex}>
