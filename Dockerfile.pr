@@ -1,0 +1,28 @@
+# Adjust NODE_VERSION as desired
+ARG NODE_VERSION=21.6.2
+FROM node:${NODE_VERSION}-slim as base
+
+ARG NEXT_PUBLIC_API_BASE_URL
+ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+
+ARG NEXT_PUBLIC_FE_URL
+ENV NEXT_PUBLIC_FE_URL=$NEXT_PUBLIC_FE_URL
+
+ARG NEXT_PUBLIC_KAKAO_OAUTH_URL
+ENV NEXT_PUBLIC_KAKAO_OAUTH_URL=$NEXT_PUBLIC_KAKAO_OAUTH_URL
+
+# Build application
+RUN npm run build
+
+# Remove development dependencies
+RUN npm prune --omit=dev
+
+# Final stage for app image
+FROM base
+
+# Copy built application
+COPY --from=build /app /app
+
+# Start the server by default, this can be overwritten at runtime
+EXPOSE 3000
+CMD [ "npm", "run", "start" ]
