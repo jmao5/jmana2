@@ -12,9 +12,8 @@ const useScrollDoubleChk = (prevNextInfo: ChapterPrevNextResponse) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } =
-        document.documentElement;
-      const reachedBottom = scrollTop + clientHeight >= scrollHeight;
+      const { scrollTop, scrollHeight } = document.documentElement;
+      const reachedBottom = scrollTop + window.innerHeight >= scrollHeight;
 
       // 페이지가 처음으로 하단에 도달했을 때 firstReachedBottom을 true로 설정
       if (!firstReachedBottom && reachedBottom) {
@@ -35,10 +34,11 @@ const useScrollDoubleChk = (prevNextInfo: ChapterPrevNextResponse) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
+    window.addEventListener("touchmove", handleScroll);
     // 정리(clean-up) 함수
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
     };
   }, [firstReachedBottom, scrollPosition]);
 
