@@ -20,11 +20,14 @@ const useScrollDoubleChk = (prevNextInfo: ChapterPrevNextResponse) => {
         setFirstReachedBottom(true);
       }
 
+      console.log(window.pageYOffset);
       // 스크롤 위치가 다시 하단에 도달했을 때 isBottom을 true로 설정
       if (isRun && firstReachedBottom && reachedBottom) {
         setIsBottom(true);
         if (prevNextInfo.titleNext) {
-          router.push(`/chapter/image/${prevNextInfo.titleNext}`);
+          router.push(`/chapter/image/${prevNextInfo.titleNext}`, {
+            scroll: false,
+          });
         }
       } else {
         setIsBottom(false);
