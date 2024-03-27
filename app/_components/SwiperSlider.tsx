@@ -17,7 +17,7 @@ export default function SwiperSlider({
   toonResponseList: ToonResponse[];
 }) {
   return (
-    <div className="w-full p-2 border border-solid border-gray-300 rounded-md">
+    <div className="w-full p-2 rounded-md gap-2 sm:gap-4">
       <Swiper
         slidesPerView={3}
         spaceBetween={10}
@@ -31,7 +31,7 @@ export default function SwiperSlider({
             slidesPerView: 4,
           },
         }}
-        className="rounded-md"
+        // className="rounded-md"
       >
         {toonResponseList.map((item, innerIndex) => (
           <SwiperSlide key={innerIndex}>
