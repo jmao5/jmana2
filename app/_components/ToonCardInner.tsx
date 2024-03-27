@@ -45,11 +45,10 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
           <span className="text-md flex items-center">
             {isDifferenceGreaterThan10Days && (
               <Icon
-                name="LOCAL_FIRE_DEPARTMENT"
-                color="emerald-500"
+                name="ARROW_CIRCLE_UP"
+                color="rose-500"
                 size="xl"
-                isFilled={true}
-                classNameList={["relative", "right-1", "text-emerald-500"]}
+                classNameList={["relative", "right-1", "text-rose-500"]}
               />
             )}
             <span

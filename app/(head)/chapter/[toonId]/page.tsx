@@ -25,6 +25,7 @@ export default async function ChapterPage({
               className={`flex items-center justify-between px-6 py-2 transition-colors hover:bg-gray-200 ${
                 chapter.updatedAt && "bg-zinc-100"
               } rounded-lg border border-gray-300`}
+              scroll={false}
             >
               <div className="flex-grow">
                 <h2 className="text-lg font-semibold text-black">
