@@ -11,7 +11,7 @@ interface ChapterToonInfo {
 
 export default function ChapterToonInfo({ toonInfo, toonId }: ChapterToonInfo) {
   return (
-    <div className="flex items-start justify-center bg-white p-2 sm:p-6">
+    <div className="flex items-start justify-center bg-white p-2 md:p-6">
       <div className="w-1/4 flex-shrink-0">
         <Image
           src={toonInfo.imagePath}

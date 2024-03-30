@@ -14,7 +14,7 @@ const ChapterImageList = ({
     <Image
       alt={chapterImage.id.toString()}
       src={isImgError ? chapterImage.toonImageUrl : chapterImage.toonImageUrl}
-      width={700}
+      width={768}
       height={2000}
       // priority
       onError={() => setIsImgError(true)}

@@ -13,12 +13,12 @@ export default async function Navigation() {
   return (
     // <header className="bg-zinc-50 flex w-full max-w-screen-sm flex-col px-4">
     <>
-      <header className="border-b border-background-darken flex h-16 w-full items-center justify-between space-x-4 bg-background p-3 fixed max-w-screen-sm z-10 top-0">
+      <header className="border-b border-background-darken flex h-16 w-full items-center justify-between space-x-4 bg-background p-3 fixed max-w-screen-md z-10 top-0">
         <nav className="flex items-center justify-between w-full">
           <div className="flex items-center">
             <a href={"/"}>
               <Image
-                className="w-12 sm:w-20"
+                className="w-12 md:w-20"
                 src="/images/logo.png"
                 width={100}
                 height={100}
