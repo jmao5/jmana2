@@ -58,7 +58,7 @@ const ToonList: React.FC<ToonCardProps> = ({
             //   />
             // }
           >
-            <ul className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 mx-2 sm:mx-4 mt-2 sm:mt-4">
+            <ul className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4 mx-2 sm:mx-4 mt-2 sm:mt-4 mb-16">
               {flatLoadedToons?.map(({ data }, index) => (
                 <ToonCard key={index} toonResponseList={data} />
               ))}

@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const useScrollDoubleChk = (prevNextInfo: ChapterPrevNextResponse) => {
   const router = useRouter();
   const { isRun } = useRunStore();
-  const [isBottom, setIsBottom] = useState(false);
   const [firstReachedBottom, setFirstReachedBottom] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -22,12 +21,9 @@ const useScrollDoubleChk = (prevNextInfo: ChapterPrevNextResponse) => {
 
       // 스크롤 위치가 다시 하단에 도달했을 때 isBottom을 true로 설정
       if (isRun && firstReachedBottom && reachedBottom) {
-        setIsBottom(true);
         if (prevNextInfo.titleNext) {
           router.push(`/chapter/image/${prevNextInfo.titleNext}`);
         }
-      } else {
-        setIsBottom(false);
       }
 
       setScrollPosition(scrollTop);
@@ -42,7 +38,7 @@ const useScrollDoubleChk = (prevNextInfo: ChapterPrevNextResponse) => {
     };
   }, [firstReachedBottom, scrollPosition]);
 
-  return { isBottom, firstReachedBottom, scrollPosition };
+  return { firstReachedBottom, scrollPosition };
 };
 
 export default useScrollDoubleChk;
