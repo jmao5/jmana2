@@ -12,7 +12,7 @@ const Footer = () => {
   const pathname = usePathname();
 
   const defaultStyle =
-    "bg-background shadow-upper flex h-14 max-w-screen-md w-full items-center justify-around fixed bottom-0 z-10";
+    "bg-background shadow-upper flex h-14 max-w-screen-sm w-full items-center justify-around fixed bottom-0 z-10";
 
   const active = "text-primary";
 

@@ -17,7 +17,7 @@ export default async function ChapterPage({
   return (
     <div className="w-full">
       <ChapterToonInfo toonInfo={toonInfo} toonId={params.toonId} />
-      <ul className="px-2 md:px-6 mb-4">
+      <ul className="px-2 sm:px-6 mb-16">
         {chapterList.map((chapter) => (
           <li key={chapter.id}>
             <Link
