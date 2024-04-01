@@ -786,3 +786,8 @@ export type UserToonMarkCheckResponse = {
   actived: boolean;
   activedCount: number;
 };
+
+export interface PostUsersRefreshResponse {
+  success: boolean;
+  data: string;
+}
