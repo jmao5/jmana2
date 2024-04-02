@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+import withPWAInit from "@ducanh2912/next-pwa";
+const withPWA = withPWAInit({
+  dest: "public",
+});
+
+const nextConfig = withPWA({
   swcMinify: true,
   reactStrictMode: false,
   webpack: (config) => {
@@ -42,6 +47,6 @@ const nextConfig = {
       },
     ],
   },
-};
+});
 
 export default nextConfig;
