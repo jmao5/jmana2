@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/logo.png",
   },
-  themeColor: "#f68e5f",
 };
 
 export default function RootLayout({
@@ -32,6 +31,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
         />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#f68e5f" />
       </head>
       <body
         className={classNames(
