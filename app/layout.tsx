@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/logo.png",
   },
+  themeColor: "#f68e5f",
 };
 
 export default function RootLayout({
