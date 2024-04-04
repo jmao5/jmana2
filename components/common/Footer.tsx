@@ -46,7 +46,7 @@ const Footer = () => {
       </Link>
       <Link
         href="/profile"
-        className={`${pathname === "profile" && `${active}`}`}
+        className={`${pathname === "/profile" && `${active}`}`}
       >
         <IconGroup title="프로필">
           <BiUser />

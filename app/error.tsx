@@ -1,31 +1,18 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-import Button from "@/components/common/Button";
-import Image from "next/image";
 import LinkButton from "@/components/common/LinkButton";
+import Image from "next/image";
 
 export default function ErrorPage({
   error,
-  reset,
 }: {
   error?: Error & { digest?: string };
-  reset?: () => void;
 }) {
-  const router = useRouter();
-
   useEffect(() => {
     console.error(error);
   }, [error]);
-
-  const handleReset = () => {
-    if (reset) reset();
-    else {
-      router.refresh();
-    }
-  };
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">

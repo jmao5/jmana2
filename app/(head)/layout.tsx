@@ -1,16 +1,14 @@
 import React from "react";
 
-import Navigation from "@/components/domain/home/Navigation";
 import Footer from "@/components/common/Footer";
-import { getServerToken } from "@/utils/auth";
+import Navigation from "@/components/domain/home/Navigation";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
-  const token = getServerToken();
   return (
     <>
       <Navigation />
       {children}
-      {token && <Footer />}
+      <Footer />
     </>
   );
 };
