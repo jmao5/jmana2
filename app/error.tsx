@@ -38,7 +38,6 @@ export default function ErrorPage({
         height={300}
         width={300}
       />
-      <Button onClick={handleReset}>새로 고침</Button>
       <LinkButton href={"/"} className="mt-4">
         시작 페이지로 돌아가기
       </LinkButton>
