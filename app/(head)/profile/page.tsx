@@ -46,10 +46,7 @@ const ProfilePage = () => {
       <div className="my-page">
         <div className="my-page__wrapper">
           <Image
-            src={
-              userInformation.basicInfo.userImage ??
-              "/images/OneDayHero_logo_sm.svg"
-            }
+            src={userInformation.basicInfo.userImage ?? "/images/man.png"}
             width={240}
             height={160}
             alt="이미지 프로필"
