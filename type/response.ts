@@ -230,6 +230,7 @@ export type UserResponse = {
       birth: string;
       introduce: string;
       userImage: string;
+      userRole: string;
     };
     favoriteWorkingDay: {
       favoriteDate: DateType[] | null;
