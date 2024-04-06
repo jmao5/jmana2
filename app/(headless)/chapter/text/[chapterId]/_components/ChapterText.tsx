@@ -7,6 +7,7 @@ import useNavVisibleStore from "@/stores/isNavVisible";
 import { ChapterPrevNextResponse, ChapterTextResponse } from "@/type/response";
 import React, { useEffect } from "react";
 import ChapterTextNavBar from "./ChapterTextNavBar";
+import { RIDIBatang } from "@/style/font/RIDIBatang";
 
 const ChapterText = ({
   chapterText,
@@ -43,15 +44,17 @@ const ChapterText = ({
   }, [setIsNavVisible]);
 
   // 챕터 텍스트를 문단으로 나누고 줄 바꿈
-  const formattedChapterText = chapterText.chapterText
-    .split(".")
-    .map((paragraph, index, array) => (
-      <React.Fragment key={index}>
-        {paragraph.trim()}
-        {index !== array.length - 1 && "."}
+  const formattedChapterText = [];
+  const regex = /[^.”]+[.”]*\s*/g;
+  let match;
+  while ((match = regex.exec(chapterText.chapterText)) !== null) {
+    formattedChapterText.push(
+      <React.Fragment key={formattedChapterText.length}>
+        {match[0].trim()}
         <br />
       </React.Fragment>
-    ));
+    );
+  }
 
   return (
     <div className="w-full" onClick={toggleNav}>
@@ -59,7 +62,8 @@ const ChapterText = ({
         prevNextInfo={prevNextInfo}
         scrollToBottom={scrollToBottom}
       />
-      <div className="px-6 text-2xl leading-relaxed">
+
+      <div className={`${RIDIBatang.className} px-6 text-xl leading-loose`}>
         {formattedChapterText}
       </div>
     </div>
