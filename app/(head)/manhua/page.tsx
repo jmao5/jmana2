@@ -1,8 +1,9 @@
 import ToonList from "@/app/_components/ToonList";
+import { Menu } from "@/constants/menu";
 import { getServerToken } from "@/utils/auth";
 
 export default function Manhua() {
   const token = getServerToken();
 
-  return <ToonList token={token} menu={"MANHUA"} />;
+  return <ToonList token={token} menu={Menu.CARTOON} />;
 }

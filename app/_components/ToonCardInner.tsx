@@ -2,6 +2,7 @@
 
 import Icon from "@/components/common/Icon/Icon";
 import { BLUR_IMAGE_SRC } from "@/constants/blurImageSrc";
+import { Menu } from "@/constants/menu";
 import { ToonResponse } from "@/type/response";
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -21,25 +22,28 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
       <Link
         href={`/chapter/${item.id}`}
         className="link block bg-white rounded-lg shadow-md overflow-hidden sm:w-32"
-        // prefetch={false}
       >
         <div className="w-full h-32 relative">
           <Image
-            alt={item.title}
+            src={!isImgError ? item.imagePath : "/images/blur.jpg"} // priority={true}
             // src={"/images/blur.jpg"}
             // src={item.imagePath}
-            src={!isImgError ? item.imagePath : "/images/blur.jpg"}
-            // priority={true}
             // className="w-full h-full"
             // width={200}
             // height={300}
-            layout="fill"
             // quality={30}
+            alt={item.title}
+            layout="fill"
             unoptimized={true}
             onError={() => setIsImgError(true)}
             blurDataURL={BLUR_IMAGE_SRC}
             placeholder="blur"
           />
+          <span className="absolute tob-10 left-0 p-1 text-xs font-bold text-white bg-black bg-opacity-50 rounded-br-lg">
+            {item.menu === Menu.WEBTOON && "웹툰"}
+            {item.menu === Menu.CARTOON && "만화"}
+            {item.menu === Menu.NOVEL && "소설"}
+          </span>
         </div>
         <div className="p-2 min-h-[84px]">
           <span className="text-md flex items-center">

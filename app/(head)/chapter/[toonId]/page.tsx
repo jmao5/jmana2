@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import ChapterToonInfo from "../_components/ChapterToonInfo";
 import Icon from "@/components/common/Icon/Icon";
+import { Menu } from "@/constants/menu";
 
 export default async function ChapterPage({
   params,
@@ -22,7 +23,7 @@ export default async function ChapterPage({
           <li key={chapter.id}>
             <Link
               href={
-                chapter.menu === "NOVEL"
+                chapter.menu === Menu.NOVEL
                   ? `/chapter/text/${chapter.id}`
                   : `/chapter/image/${chapter.id}`
               }

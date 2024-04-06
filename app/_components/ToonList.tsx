@@ -5,6 +5,7 @@ import { useToonListQuery } from "@/hooks/apis/useToonListQuery";
 import { useMemo } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import ToonCard from "./ToonCard";
+import { Menu } from "@/constants/menu";
 
 interface ToonCardProps {
   token?: string;
@@ -28,7 +29,7 @@ const ToonList: React.FC<ToonCardProps> = ({
         search: search ? search : "",
         days: null,
         toonMark: toonMark ? toonMark : false,
-        menu: menu ? menu : search === "" ? "TOON" : "",
+        menu: menu ? menu : "",
       })
     : {
         loadedToons: [],

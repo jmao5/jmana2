@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaFire } from "react-icons/fa6";
 import ToonsByMenuSlider from "../_components/ToonsByMenuSlider";
 import { getServerToken } from "@/utils/auth";
+import { Menu } from "@/constants/menu";
 
 interface SectionInterface {
   title: string;
@@ -33,8 +34,8 @@ export default function Home() {
     token && (
       <>
         <Section title="즐겨찾기" href="/mark" toonMark={true} />
-        <Section title="웹툰" href="/webtoon" menu="TOON" />
-        <Section title="만화" href="/manhua" menu="MANHUA" />
+        <Section title="웹툰" href="/webtoon" menu={Menu.WEBTOON} />
+        <Section title="만화" href="/manhua" menu={Menu.CARTOON} />
       </>
     )
   );
