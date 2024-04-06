@@ -17,7 +17,7 @@ export default function SwiperSlider({
   toonResponseList: ToonResponse[];
 }) {
   return (
-    <div className="w-full p-2 gap-2 sm:gap-4">
+    <div className="w-full p-2 gap-2 lg:gap-4">
       <Swiper
         slidesPerView={3}
         spaceBetween={10}
@@ -29,6 +29,12 @@ export default function SwiperSlider({
         breakpoints={{
           640: {
             slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 5,
+          },
+          1024: {
+            slidesPerView: 7,
           },
         }}
         className="pb-2 pt-0.5"
