@@ -767,12 +767,19 @@ export type ChapterResponse = {
   cateTitle: string;
   chapterSeq: number;
   updatedAt: Date;
+  menu: string;
 };
 
 export type ChapterImageResponse = {
   id: number;
   chapterId: number;
   toonImageUrl: string;
+};
+
+export type ChapterTextResponse = {
+  id: number;
+  chapterId: number;
+  chapterText: string;
 };
 
 export type ChapterPrevNextResponse = {

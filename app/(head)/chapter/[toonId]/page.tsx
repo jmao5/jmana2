@@ -21,7 +21,11 @@ export default async function ChapterPage({
         {chapterList.map((chapter) => (
           <li key={chapter.id}>
             <Link
-              href={`/chapter/image/${chapter.id}`}
+              href={
+                chapter.menu === "NOVEL"
+                  ? `/chapter/text/${chapter.id}`
+                  : `/chapter/image/${chapter.id}`
+              }
               className={`flex items-center justify-between px-6 py-2 transition-colors hover:bg-gray-200 ${
                 chapter.updatedAt && "bg-zinc-100"
               } rounded-lg border border-gray-300`}
