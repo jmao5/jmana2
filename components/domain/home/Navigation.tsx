@@ -17,7 +17,7 @@ export default async function Navigation({
   return (
     // <header className="bg-zinc-50 flex w-full max-w-screen-sm flex-col px-4">
     <>
-      <header className="border-b border-background-darken flex h-16 w-full items-center justify-between space-x-4 bg-background p-3 fixed max-w-screen-sm lg:max-w-screen-lg z-10 top-0">
+      <header className="border-b border-background-darken flex h-16 w-full items-center justify-between space-x-4 bg-background p-3 fixed max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg z-10 top-0">
         <nav className="flex items-center justify-between w-full">
           <div className="flex items-center">
             <a href={"/"}>

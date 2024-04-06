@@ -20,7 +20,7 @@ const Footer = ({
   const active = "text-primary";
 
   return (
-    <nav className="bg-background shadow-upper flex h-14 max-w-screen-sm lg:max-w-screen-lg w-full items-center justify-around fixed bottom-0 z-10">
+    <nav className="bg-background shadow-upper flex h-14 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg w-full items-center justify-around fixed bottom-0 z-10">
       <Link href="/" className={`${pathname === "/" && `${active}`}`}>
         <IconGroup title="홈">
           <BiHome />
