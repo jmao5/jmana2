@@ -12,7 +12,7 @@ export default async function ToonsByMenuSlider({
 }: ToonsByMenuSliderInterface) {
   const params = {
     page: 1,
-    size: 10,
+    size: 20,
     menu: menu,
     toonMark: toonMark,
   };
