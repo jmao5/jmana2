@@ -12,7 +12,9 @@ export const useToonListQuery = (query: ToonRequest) => {
         ? [QUERY_KEY.ALL_TOONS_MARK]
         : query.menu === "TOON"
         ? [QUERY_KEY.ALL_TOONS]
-        : [QUERY_KEY.ALL_Mans],
+        : query.menu === "MANHUA"
+        ? [QUERY_KEY.ALL_MANS]
+        : [QUERY_KEY.ALL_NOVELS],
       queryFn: async ({ pageParam = 1 }) => {
         let params = {
           ...query,

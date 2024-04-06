@@ -1,7 +1,8 @@
 export const QUERY_KEY = {
   MY_PLANS: "getMyPlans",
   ALL_TOONS: "getAllToons",
-  ALL_Mans: "getAllMans",
+  ALL_MANS: "getAllMans",
+  ALL_NOVELS: "getAllNovels",
   ALL_TOONS_MARK: "getAllToonsMark",
   PLAN: "getPlan",
   TOON_MARK: "getToonMark",

@@ -757,6 +757,7 @@ export type ToonResponse = {
   toonSummary: string;
   updateDate: Date;
   activedCount: number;
+  menu: string;
 };
 
 export type ChapterResponse = {
