@@ -43,7 +43,7 @@ const ChapterTextNavBar = ({
   // 일시 중지 및 재개 기능 수정
   const toggleSpeech = () => {
     if (isSpeaking) {
-      window.speechSynthesis.cancel();
+      window.speechSynthesis.pause();
       setIsSpeaking(false);
     } else {
       speakText(chapterText); // 일시 중지된 위치가 없으면 처음부터 읽습니다.
@@ -84,7 +84,7 @@ const ChapterTextNavBar = ({
       </div>
 
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full flex items-center justify-center">
-        <div className="flex justify-between w-[312px]">
+        <div className="flex justify-between w-[350px] lg:w-[450px]">
           {prevNextInfo.titlePrev && (
             <Link
               href={`/chapter/text/${prevNextInfo.titlePrev}`}
