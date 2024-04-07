@@ -44,6 +44,7 @@ const ICON_NAME_MAP = {
   ARROW_CIRCLE_UP: "arrow_circle_up",
   SPRINT: "sprint",
   DIRECTIONS_RUN: "directions_run",
+  MIC: "mic",
 };
 
 interface IconProps {

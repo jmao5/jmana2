@@ -60,6 +60,7 @@ const ChapterText = ({
     <div className="w-full" onClick={toggleNav}>
       <ChapterTextNavBar
         prevNextInfo={prevNextInfo}
+        chapterText={chapterText.chapterText}
         scrollToBottom={scrollToBottom}
       />
 

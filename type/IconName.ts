@@ -38,4 +38,5 @@ export type IconName =
   | "SHIFT"
   | "ARROW_CIRCLE_UP"
   | "SPRINT"
-  | "DIRECTIONS_RUN";
+  | "DIRECTIONS_RUN"
+  | "MIC";
