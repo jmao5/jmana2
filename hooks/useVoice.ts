@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import NoSleep from "nosleep.js";
 
 const useVoice = (chapterText: string) => {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isPause, setIsPauseg] = useState(false);
+  const noSleep = new NoSleep();
 
   useEffect(() => {
     setVoiceList();
@@ -19,16 +21,19 @@ const useVoice = (chapterText: string) => {
   // 일시 중지 및 재개 기능 수정
   const toggleSpeech = () => {
     if (isSpeaking) {
-      window.speechSynthesis.pause();
+      // window.speechSynthesis.pause();
+      window.speechSynthesis.cancel();
       setIsPauseg(true);
       setIsSpeaking(false);
+      noSleep.enable();
     } else {
-      if (isPause) {
-        window.speechSynthesis.resume();
-      } else {
-        speakText(chapterText); // 일시 중지된 위치가 없으면 처음부터 읽습니다.
-      }
+      // if (isPause) {
+      //   window.speechSynthesis.resume();
+      // } else {
+      speakText(chapterText); // 일시 중지된 위치가 없으면 처음부터 읽습니다.
+      // }
       setIsSpeaking(true);
+      noSleep.disable();
     }
   };
 
@@ -76,9 +81,9 @@ const useVoice = (chapterText: string) => {
     if (!window.speechSynthesis.speaking) {
       return;
     }
-
+    noSleep.disable();
     window.speechSynthesis.cancel();
-  }, [location.pathname]);
+  }, [location.pathname, noSleep]);
 
   return { isSpeaking, toggleSpeech };
 };
