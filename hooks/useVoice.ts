@@ -23,7 +23,7 @@ const useVoice = (chapterText: string) => {
     if (isSpeaking) {
       // window.speechSynthesis.pause();
       window.speechSynthesis.cancel();
-      setIsPauseg(true);
+      // setIsPauseg(true);
       setIsSpeaking(false);
       noSleep.enable();
     } else {
@@ -83,7 +83,7 @@ const useVoice = (chapterText: string) => {
     }
     noSleep.disable();
     window.speechSynthesis.cancel();
-  }, [location.pathname, noSleep]);
+  }, [location.pathname]);
 
   return { isSpeaking, toggleSpeech };
 };
