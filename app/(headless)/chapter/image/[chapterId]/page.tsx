@@ -3,12 +3,17 @@ import {
   getSvPrevNext,
 } from "@/apis/client/getSvChapterImage";
 import ChapterImage from "@/app/(headless)/chapter/image/[chapterId]/_components/ChapterImage";
+import { getServerToken } from "@/utils/auth";
+import { redirect } from "next/navigation";
 
 export default async function ChapterImagePage({
   params,
 }: {
   params: { chapterId: number };
 }) {
+  const token = getServerToken();
+  if (!token) redirect("/login");
+
   const { chapterId } = params;
   const { data: chapterImageList } = await getSvChapterImageList(chapterId);
   const { data: prevNextInfo } = await getSvPrevNext(chapterId);

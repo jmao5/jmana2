@@ -1,7 +1,6 @@
 import { NETWORK } from "@/constants/api";
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { cookies } from "next/headers";
-import { useRouter } from "next/navigation";
 
 export const axiosInstanceServer = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -27,8 +26,6 @@ axiosInstanceServer.interceptors.request.use(
     return config;
   },
   (error: AxiosError) => {
-    const router = useRouter();
-    router.push("/login");
     return Promise.reject(error);
   }
 );
