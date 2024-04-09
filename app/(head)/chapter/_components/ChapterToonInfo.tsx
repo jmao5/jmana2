@@ -24,7 +24,7 @@ export default function ChapterToonInfo({ toonInfo, toonId }: ChapterToonInfo) {
     updateSuccess(undefined, {
       onSuccess: () => {
         queryClient.invalidateQueries({
-          queryKey: [QUERY_KEY.CHAPTER_LIST],
+          queryKey: [QUERY_KEY.CHAPTER_LIST, toonId],
         });
       },
     });

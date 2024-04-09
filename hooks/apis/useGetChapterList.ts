@@ -4,7 +4,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 
 export const useGetChapterList = (toonId: number) => {
   const { data, isError, isFetching, error } = useSuspenseQuery({
-    queryKey: [QUERY_KEY.CHAPTER_LIST],
+    queryKey: [QUERY_KEY.CHAPTER_LIST, toonId],
     queryFn: () => getClChapterList(toonId),
     staleTime: Infinity,
   });
