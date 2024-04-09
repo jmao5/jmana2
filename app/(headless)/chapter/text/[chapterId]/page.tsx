@@ -6,8 +6,10 @@ import { redirect } from "next/navigation";
 
 export default async function ChapterTextPage({
   params,
+  searchParams,
 }: {
   params: { chapterId: number };
+  searchParams: { toonId: number };
 }) {
   const token = getServerToken();
   if (!token) redirect("/login");
@@ -21,6 +23,7 @@ export default async function ChapterTextPage({
       chapterText={chapterText}
       prevNextInfo={prevNextInfo}
       chapterId={chapterId}
+      toonId={searchParams.toonId}
     />
   );
 }

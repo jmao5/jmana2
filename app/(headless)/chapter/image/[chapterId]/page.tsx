@@ -4,12 +4,14 @@ import {
 } from "@/apis/client/getSvChapterImage";
 import ChapterImage from "@/app/(headless)/chapter/image/[chapterId]/_components/ChapterImage";
 import { getServerToken } from "@/utils/auth";
-import { redirect } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 
 export default async function ChapterImagePage({
   params,
+  searchParams,
 }: {
   params: { chapterId: number };
+  searchParams: { toonId: number };
 }) {
   const token = getServerToken();
   if (!token) redirect("/login");
@@ -23,6 +25,7 @@ export default async function ChapterImagePage({
       chapterImageList={chapterImageList}
       prevNextInfo={prevNextInfo}
       chapterId={chapterId}
+      toonId={searchParams.toonId}
     />
   );
 }

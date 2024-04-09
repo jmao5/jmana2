@@ -13,15 +13,17 @@ const ChapterImage = ({
   chapterImageList,
   prevNextInfo,
   chapterId,
+  toonId,
 }: {
   chapterImageList: ChapterImageResponse[];
   prevNextInfo: ChapterPrevNextResponse;
   chapterId: number;
+  toonId: number;
 }) => {
-  const { mutate: saveChapterLog } = useSaveChapterLogMutation(chapterId);
+  const saveChapterLogMutation = useSaveChapterLogMutation(chapterId, toonId);
 
   useEffect(() => {
-    saveChapterLog(chapterId);
+    saveChapterLogMutation.mutate();
   }, []);
 
   const { isNavVisible, setIsNavVisible } = useNavVisibleStore();

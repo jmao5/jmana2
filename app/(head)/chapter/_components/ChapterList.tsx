@@ -19,8 +19,8 @@ export default function ChapterList({ toonId }: ChapterListInfo) {
           <Link
             href={
               chapter.menu === Menu.NOVEL
-                ? `/chapter/text/${chapter.id}`
-                : `/chapter/image/${chapter.id}`
+                ? `/chapter/text/${chapter.id}?toonId=${toonId}`
+                : `/chapter/image/${chapter.id}?toonId=${toonId}`
             }
             className={`flex items-center justify-between px-6 py-2 transition-colors hover:bg-gray-200 ${
               chapter.updatedAt && "bg-zinc-100"
