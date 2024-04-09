@@ -6,7 +6,6 @@ import { getUserSvInformation } from "@/apis/client/getSvUser";
 
 const layout = async ({ children }: { children: React.ReactNode }) => {
   const { userInfo } = await getUserSvInformation();
-  console.log("userInfo : ", userInfo);
 
   return (
     <>

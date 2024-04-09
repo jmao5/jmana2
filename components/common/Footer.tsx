@@ -9,6 +9,8 @@ import { HiOutlineBookOpen } from "react-icons/hi2";
 
 import IconGroup from "./IconGroup";
 import { UserResponse } from "@/type/response";
+import isUserInfoStore from "@/stores/isUserInfoStore";
+import { useEffect } from "react";
 
 const Footer = ({
   userInfo,
@@ -16,6 +18,13 @@ const Footer = ({
   userInfo?: UserResponse["data"]["basicInfo"];
 }) => {
   const pathname = usePathname();
+
+  const { setUserInfo } = isUserInfoStore();
+  useEffect(() => {
+    if (userInfo) {
+      setUserInfo(userInfo);
+    }
+  }, []);
 
   const active = "text-primary";
 

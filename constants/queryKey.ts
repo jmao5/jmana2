@@ -8,4 +8,5 @@ export const QUERY_KEY = {
   TOON_MARK: "getToonMark",
   CHAPTER: "getChapter",
   USER_INFORMATION: "getUserInformation",
+  CHAPTER_LIST: "getChapterList",
 };

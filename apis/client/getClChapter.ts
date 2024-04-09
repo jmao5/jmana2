@@ -1,4 +1,4 @@
-import { UserToonMarkCheckResponse } from "@/type/response";
+import { ChapterResponse, UserToonMarkCheckResponse } from "@/type/response";
 import { axiosInstanceClient } from "../axiosInstanceClient";
 
 export const toggleIsToonMark = (toonId: number) => {
@@ -13,4 +13,16 @@ export const getToonClMarkAuthUser = (toonId: number) => {
 
 export const saveChapterLog = (chapterId: number) => {
   return axiosInstanceClient.put(`/api/user/${chapterId}/chapterLog`);
+};
+
+export const getClChapterList = (id: number) => {
+  return axiosInstanceClient.get<ChapterResponse[]>("/api/searchChapterList", {
+    params: { id },
+  });
+};
+
+export const updateChapterSequence = (toonId: number) => {
+  return axiosInstanceClient.post<void>("/api/updateChapterSequence", {
+    id: toonId,
+  });
 };
