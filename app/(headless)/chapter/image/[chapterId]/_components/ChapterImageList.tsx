@@ -35,11 +35,13 @@ const ChapterImageList = ({
   const height = width * 3;
 
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       alt={chapterImage.id.toString()}
       src={isImgError ? chapterImage.toonImageUrl : chapterImage.toonImageUrl}
       width={width}
       height={height}
+      loading={"lazy"}
       // priority
       onError={() => setIsImgError(true)}
       // layout="fill"
