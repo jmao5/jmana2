@@ -47,6 +47,10 @@ const nextConfig = withPWA({
         protocol: "https",
         hostname: "img2.newtoki20.org",
       },
+      {
+        protocol: "https",
+        hostname: "img.timiai489.com",
+      },
     ],
   },
 });
