@@ -32,6 +32,7 @@ const ToonCardInner: React.FC<{ item: ToonResponse }> = ({ item }) => {
             // width={200}
             // height={300}
             // quality={30}
+            referrerPolicy="no-referrer"
             alt={item.title}
             layout="fill"
             unoptimized={true}

@@ -38,6 +38,7 @@ export default function ChapterToonInfo({ toonInfo, toonId }: ChapterToonInfo) {
           src={toonInfo.imagePath}
           alt={toonInfo.title}
           className="rounded-lg shadow-md h-44"
+          referrerPolicy="no-referrer"
           width={200}
           height={100}
           unoptimized={true}
