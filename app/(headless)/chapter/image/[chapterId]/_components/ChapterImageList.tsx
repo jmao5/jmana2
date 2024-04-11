@@ -42,6 +42,7 @@ const ChapterImageList = ({
       width={width}
       height={height}
       loading={"lazy"}
+      referrerPolicy="no-referrer"
       // priority
       onError={() => setIsImgError(true)}
       // layout="fill"
