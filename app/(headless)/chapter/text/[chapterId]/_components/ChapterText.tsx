@@ -47,7 +47,7 @@ const ChapterText = ({
 
   // 챕터 텍스트를 문단으로 나누고 줄 바꿈
   const formattedChapterText = [];
-  const regex = /[^.”]+[."”]*\s*/g;
+  const regex = /[^\.\?\!\”]+[\."\?"\!"\”"]+/g;
 
   let match;
   while ((match = regex.exec(chapterText.chapterText)) !== null) {
